@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Burger Freakz</string>
+    <string name="Button_1">ORDER NOW</string>
+    <string name="burger_1">Freakz Cheesy Hamburger</string>
+    <string name="burger_2">" Crispy Chicken Cheesy Burger"</string>
+    <string name="burger_3">Freakz Chilli Chicken Cheesy Burger</string>
+    <string name="Button_2">BUY NOW</string>
+    <string name="Quantity">Quantity</string>
+    <string name="Button_3">Product Mangement</string>
+    <string name="Button_4">Delivery Mangement</string>
+    <string name="Button_5">Customer Mangement</string>
+    <string name="form_1">Product Name</string>
+    <string name="form_2">Product Code</string>
+    <string name="form_3">Product Price</string>
+    <string name="form_5">Input A Size</string>
+    <string name="basket">Your Basket</string>
+    <string name="net_total">Net Total</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="landmarks">Landmarks</string>
+    <string name="order_no">Order No</string>
+    <string name="rider_name">Rider Name</string>
+    <string name="rider_no">Rider No</string>
+    <string name="bike_no">Bike No</string>
+    <string name="contact_no">Contact No</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
+    <string name="about_us">About Us</string>
+    <string name="form_8">Size</string>
+</resources>
