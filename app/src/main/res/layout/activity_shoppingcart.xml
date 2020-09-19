@@ -13,7 +13,9 @@
         android:background="#FFFFFF"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 
     <androidx.appcompat.widget.Toolbar
@@ -96,7 +98,7 @@
         app:layout_constraintVertical_bias="0.508" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/order2"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="360dp"
         android:layout_height="40dp"
@@ -111,7 +113,7 @@
         app:layout_constraintVertical_bias="0.323" />
 
     <Button
-        android:id="@+id/btnCon1"
+        android:id="@+id/btnContinue"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="360dp"
         android:layout_height="40dp"
@@ -350,7 +352,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+        app:srcCompat="@drawable/ic_baseline_person_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -363,7 +366,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/ic_baseline_menu_24" />
+        app:srcCompat="@drawable/ic_baseline_menu_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -376,7 +380,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -389,7 +394,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.232"
-        app:srcCompat="@drawable/ic_baseline_remove_circle_outline_24" />
+        app:srcCompat="@drawable/ic_baseline_remove_circle_outline_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -402,7 +408,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.232"
-        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -415,7 +422,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.232"
-        app:srcCompat="@drawable/ic_baseline_delete_24" />
+        app:srcCompat="@drawable/ic_baseline_delete_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -428,7 +436,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <ImageView
         android:id="@+id/imageView4"

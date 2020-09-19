@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class shoppingcart extends AppCompatActivity {
 
-    Button btn;
+    Button btnContinue;
 
 
     @Override
@@ -17,9 +17,15 @@ public class shoppingcart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoppingcart);
 
-        btn = findViewById(R.id.btn);
+        btnContinue = findViewById(R.id.btnContinue);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(shoppingcart.this,Continue.class);
@@ -27,4 +33,6 @@ public class shoppingcart extends AppCompatActivity {
             }
         });
     }
+
+
 }

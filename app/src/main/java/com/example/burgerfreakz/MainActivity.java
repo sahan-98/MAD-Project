@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
     public Button button1;
-    public ImageButton button2;
+
 
 
     @Override
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = (Button) findViewById(R.id.button5);
+        button1 = (Button) findViewById(R.id.order2);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,14 +29,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button2 = (ImageButton) findViewById(R.id.imageButton2);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Intent intent2 = new Intent(MainActivity.this,AdminPanel.class);
-              startActivity(intent2);
-            }
-        });
     }
 }

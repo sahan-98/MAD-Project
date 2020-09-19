@@ -24,7 +24,7 @@ public class MyAccount extends AppCompatActivity {
             }
         });
 
-        Button button2 = (Button) findViewById(R.id.button5);
+        Button button2 = (Button) findViewById(R.id.orderHistory);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override

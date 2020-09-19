@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
-    public Button button6;
+    public Button btnDeals;
     public Button button7;
 
     @Override
@@ -18,15 +18,16 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        button6 = (Button) findViewById(R.id.button7);
+        btnDeals = (Button) findViewById(R.id.btnDeals);
 
-        button6.setOnClickListener(new View.OnClickListener() {
+        btnDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1= new Intent(Home.this,MainActivity.class);
                 startActivity(intent1);
             }
         });
+
 
         button7 = (Button) findViewById(R.id.button3);
 
@@ -60,4 +61,6 @@ public class Home extends AppCompatActivity {
 
 
     }
+
+
 }
