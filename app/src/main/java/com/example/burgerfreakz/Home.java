@@ -49,15 +49,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        ImageButton button2 = (ImageButton) findViewById(R.id.imageButton);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(Home.this,MyAccount.class);
-                startActivity(intent2);
-            }
-        });
 
 
     }

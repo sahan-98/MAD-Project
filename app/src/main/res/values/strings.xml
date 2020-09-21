@@ -28,4 +28,10 @@
     <string name="menu">Menu</string>
     <string name="about_us">About Us</string>
     <string name="form_8">Size</string>
+    <string-array name="size_array">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+
+    </string-array>
 </resources>

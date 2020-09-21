@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="410dp"
         android:layout_height="77dp"
-        android:background="#FFFFFF"
+        android:background="#9EF6A7A7"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/view"
@@ -128,48 +128,6 @@
         app:srcCompat="@drawable/logo" />
 
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        style="@android:style/Widget.DeviceDefault.ImageButton"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        style="@android:style/Widget.DeviceDefault.ImageButton"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/ic_baseline_menu_24"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        style="@android:style/Widget.DeviceDefault.ImageButton"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-        tools:ignore="VectorDrawableCompat" />
-
     <View
         android:id="@+id/view"
         android:layout_width="411dp"
@@ -264,7 +222,7 @@
         android:id="@+id/editTextTextPersonName"
         android:layout_width="205dp"
         android:layout_height="38dp"
-        android:background="#E8D9D9"
+        android:background="#F4D7D7"
         android:ems="10"
         android:inputType="textPersonName"
         android:lineSpacingExtra="10sp"
@@ -318,6 +276,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,30 +6,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class Customize extends AppCompatActivity {
 
-    public Button button5;
 
+
+    TextView productName, price;
+    Spinner size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize);
 
-        button5 = (Button) findViewById(R.id.button10);
 
-
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Customize.this,shoppingcart.class);
-                startActivity(intent);
-            }
-        });
-
+        productName = findViewById(R.id.txtCustomize);
+        price = findViewById(R.id.custPrice);
+        size = findViewById(R.id.txtsize);
 
 
     }
+
+    public void Buynow(View view){
+        String pPrice,pName,pSize;
+
+        pName = productName.getText().toString();
+        pPrice = price.getText().toString();
+
+
+        Intent intent = new Intent(Customize.this,shoppingcart.class);
+        intent.putExtra("pName", pName);
+        intent.putExtra("pPrice", pPrice);
+        startActivity(intent);
+    }
+
+
 }
