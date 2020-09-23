@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class shoppingcart extends AppCompatActivity {
 
 
-    String pName, pPrice;
+    String pName, pPrice, pSize;
     TextView description, quantity, subTotal, netTotal, scharge;
     Float price, service, Total;
     Integer quant = 1;
@@ -39,11 +39,12 @@ public class shoppingcart extends AppCompatActivity {
         Intent dintent = getIntent();
         pName = dintent.getStringExtra("pName");
         pPrice = dintent.getStringExtra("pPrice");
+        pSize = dintent.getStringExtra("pSize");
 
         price = Float.parseFloat(pPrice);
         service = price * 5 / 100;
 
-        description.setText(pName + "\nRs." + pPrice);
+        description.setText(pName + "\nRs." + pPrice + "\n"+ pSize);
         subTotal.setText("Rs. " + String.valueOf(price));
         scharge.setText("Rs." + String.valueOf(service));
         netTotal.setText("Rs. " + String.valueOf(price + service));
@@ -90,6 +91,19 @@ public class shoppingcart extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Home(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 }

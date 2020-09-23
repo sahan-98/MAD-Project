@@ -37,12 +37,12 @@
         android:id="@+id/btnProfile"
         android:layout_width="41dp"
         android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/btnMore"
@@ -183,8 +183,8 @@
 
     <Button
         android:id="@+id/custBuy"
-        android:layout_width="134dp"
-        android:layout_height="61dp"
+        android:layout_width="207dp"
+        android:layout_height="39dp"
         android:background="#4CAF50"
         android:onClick="Buynow"
         android:text="@string/Button_2"
@@ -192,10 +192,9 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintVertical_bias="0.871" />
 
     <TextView
         android:id="@+id/textView27"
@@ -205,35 +204,61 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721" />
+        app:layout_constraintVertical_bias="0.707" />
 
-    <Spinner
-        android:id="@+id/txtsize"
-        android:layout_width="173dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="80dp"
-        android:entries="@array/size_array"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custPrice"
-        app:layout_constraintVertical_bias="0.653" />
-
-    <ImageView
-        android:id="@+id/btnCart"
-        android:layout_width="36dp"
-        android:layout_height="35dp"
+    <RadioGroup
+        android:id="@+id/sizeGroup"
+        android:layout_width="136dp"
+        android:layout_height="102dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-        tools:ignore="VectorDrawableCompat" />
+        app:layout_constraintVertical_bias="0.747">
+
+        <RadioButton
+            android:id="@+id/radioSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.657"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.675" />
+
+        <RadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.755"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733" />
+
+        <RadioButton
+            android:id="@+id/radioLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.755"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733" />
+
+
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

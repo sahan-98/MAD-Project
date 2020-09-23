@@ -28,6 +28,10 @@
     <string name="menu">Menu</string>
     <string name="about_us">About Us</string>
     <string name="form_8">Size</string>
+    <string name="addRider">Add Rider</string>
+    <string name="updateRider">Update Rider</string>
+    <string name="deleteRider">Delete Rider</string>
+    <string name="viewRiders">View Riders</string>
     <string-array name="size_array">
         <item>Small</item>
         <item>Medium</item>
