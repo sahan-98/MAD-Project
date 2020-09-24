@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Email" >
+        <activity android:name=".Login" >
         </activity>
+        <activity android:name=".Email" />
         <activity android:name=".Phone" />
         <activity android:name=".Password" />
         <activity android:name=".Addressdetails" />
@@ -28,15 +29,14 @@
         <activity android:name=".AdminPanel" />
         <activity android:name=".shoppingcart" />
         <activity android:name=".Customize" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Home" >
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

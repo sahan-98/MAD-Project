@@ -52,6 +52,10 @@ public class shoppingcart extends AppCompatActivity {
     }
     public void Continue(View view){
         Intent intent = new Intent(shoppingcart.this, Continue.class);
+        intent.putExtra("product",pName);
+        intent.putExtra("subTotal",subTotal.getText().toString());
+        intent.putExtra("sCharge",scharge.getText().toString());
+        intent.putExtra("netTotal",netTotal.getText().toString());
         startActivity(intent);
     }
 

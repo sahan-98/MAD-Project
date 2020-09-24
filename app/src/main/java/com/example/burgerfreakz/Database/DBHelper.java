@@ -29,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.PaymentDetails.COLUMN_NAME_ADDRESS + " TEXT," +
                         AppMaster.PaymentDetails.COLUMN_NAME_LANDMARKS + " TEXT," +
                         AppMaster.PaymentDetails.COLUMN_NAME_PRODUCT + " TEXT," +
+                        AppMaster.PaymentDetails.COLUMN_NAME_METHOD + " TEXT," +
                         AppMaster.PaymentDetails.COLUMN_NAME_SUBTOT + " TEXT," +
                         AppMaster.PaymentDetails.COLUMN_NAME_SCHARG + " TEXT," +
                         AppMaster.PaymentDetails.COLUMN_NAME_NETTOT + " TEXT)";
@@ -51,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public long addPaymentDetails(String fname, String lName, String phone, String add, String land, String product, String sub, String chrg, String net) {
+    public long addPaymentDetails(String fname, String lName, String phone, String add, String land, String product,String method, String sub, String chrg, String net) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -61,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_ADDRESS, add);
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_LANDMARKS, land);
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_PRODUCT, product);
+        values.put(AppMaster.PaymentDetails.COLUMN_NAME_METHOD, method);
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_SUBTOT, sub);
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_SCHARG, chrg);
         values.put(AppMaster.PaymentDetails.COLUMN_NAME_NETTOT, net);

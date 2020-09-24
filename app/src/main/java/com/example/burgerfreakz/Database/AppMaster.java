@@ -15,6 +15,7 @@ public class AppMaster {
         public static final String COLUMN_NAME_ADDRESS = "address";
         public static final String COLUMN_NAME_LANDMARKS = "landmarks";
         public static final String COLUMN_NAME_PRODUCT = "product";
+        public static final String COLUMN_NAME_METHOD = "method";
         public static final String COLUMN_NAME_SUBTOT = "sub_total";
         public static final String COLUMN_NAME_NETTOT = "net_total";
         public static final String COLUMN_NAME_SCHARG = "sCharg";

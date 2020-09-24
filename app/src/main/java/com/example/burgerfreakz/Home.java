@@ -10,48 +10,26 @@ import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
-    public Button btnDeals;
-    public Button button7;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btnDeals = (Button) findViewById(R.id.btnDeals);
-
-        btnDeals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1= new Intent(Home.this,MainActivity.class);
-                startActivity(intent1);
-            }
-        });
 
 
-        button7 = (Button) findViewById(R.id.button3);
+    }
 
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent7= new Intent(Home.this,Feedback.class);
-                startActivity(intent7);
-            }
-        });
+    public void Login(View view){
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
 
-        Button button8 = (Button) findViewById(R.id.button8);
-
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1= new Intent(Home.this,Customer.class);
-                startActivity(intent1);
-            }
-        });
-
-
-
-
+    public void Deals(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
