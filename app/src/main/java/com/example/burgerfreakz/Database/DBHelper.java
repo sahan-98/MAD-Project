@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+import com.example.burgerfreakz.Classes.PDetails;
+import com.example.burgerfreakz.Classes.Riders;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,46 +87,113 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRodId;
     }
 
-    public List RiderInfo(){
+    public List<Riders> getAllRiders(){
+
+        List<Riders> riders = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT * FROM "+ AppMaster.RiderDetails.TABLE_NAME;
 
-        String[] projection = {
-                AppMaster.RiderDetails._ID,
-                AppMaster.RiderDetails.COLUMN_NAME_NAME,
-                AppMaster.RiderDetails.COLUMN_NAME_RNO,
-                AppMaster.RiderDetails.COLUMN_NAME_PHONE,
-                AppMaster.RiderDetails.COLUMN_NAME_BNo
-        };
+        Cursor cursor = db.rawQuery(query,null);
 
-        String sortOrder = AppMaster.RiderDetails.COLUMN_NAME_RNO + " DESC";
+        if(cursor.moveToFirst()){
+            do{
+                Riders rider = new Riders();
+                rider.setID(cursor.getInt(0));
+                rider.setName(cursor.getString(1));
+                rider.setRiderNo(cursor.getString(2));
+                rider.setPhone(cursor.getString(3));
+                rider.setBikeNo(cursor.getString(4));
 
-        Cursor cursor = db.query(
-                AppMaster.RiderDetails.TABLE_NAME,
-                projection,
-                null,
-                null,
-                null,
-                null,
-                sortOrder
-        );
+                riders.add(rider);
+            }while(cursor.moveToNext());
 
-        List Rnumbers = new ArrayList<>();
-        List Rnames = new ArrayList<>();
-        List Rphones = new ArrayList<>();
-        List Bnos = new ArrayList<>();
-
-        while (cursor.moveToNext()){
-            String Rname = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.RiderDetails.COLUMN_NAME_NAME));
-            String Rno = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.RiderDetails.COLUMN_NAME_RNO));
-            String Rphone = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.RiderDetails.COLUMN_NAME_PHONE));
-            String Bno = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.RiderDetails.COLUMN_NAME_BNo));
-            Rnames.add(Rname);
-            Rnumbers.add(Rno);
-            Rphones.add(Rphone);
-            Bnos.add(Bno);
         }
-        cursor.close();
-        return Rnumbers;
+        return riders;
+
     }
+
+    public void deleteRider(int id){
+        SQLiteDatabase db = getWritableDatabase();
+
+        db.delete(AppMaster.RiderDetails.TABLE_NAME,AppMaster.RiderDetails._ID +" =?",new String[]{String.valueOf(id)});
+        db.close();
+
+    }
+
+    public Riders getSingleRider(int id){
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.query(AppMaster.RiderDetails.TABLE_NAME,new String[]{AppMaster.RiderDetails._ID,AppMaster.RiderDetails.COLUMN_NAME_NAME,
+                AppMaster.RiderDetails.COLUMN_NAME_RNO,AppMaster.RiderDetails.COLUMN_NAME_PHONE,AppMaster.RiderDetails.COLUMN_NAME_BNo},
+                AppMaster.RiderDetails._ID + "= ?",new String[]{String.valueOf(id)},
+                null,null,null);
+
+        Riders riders;
+        if(cursor != null){
+            cursor.moveToFirst();
+
+            riders = new Riders(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4)
+            );
+
+            return riders;
+        }
+        return null;
+    }
+
+    public int updateRider(Riders riders){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(AppMaster.RiderDetails.COLUMN_NAME_NAME, riders.getName());
+        values.put(AppMaster.RiderDetails.COLUMN_NAME_RNO, riders.getRiderNo());
+        values.put(AppMaster.RiderDetails.COLUMN_NAME_PHONE, riders.getPhone());
+        values.put(AppMaster.RiderDetails.COLUMN_NAME_BNo, riders.getBikeNo());
+
+        int status = db.update(AppMaster.RiderDetails.TABLE_NAME,values, AppMaster.RiderDetails._ID + " =?",
+                new String[]{String.valueOf(riders.getID())});
+        db.close();
+        return status;
+
+    }
+
+    public List<PDetails> getPaymentDetails(){
+
+        List<PDetails> details = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT * FROM "+ AppMaster.PaymentDetails.TABLE_NAME;
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                PDetails pDetails = new PDetails();
+                pDetails.setId(cursor.getInt(0));
+                pDetails.setFname(cursor.getString(1));
+                pDetails.setLname(cursor.getString(2));
+                pDetails.setPhone(cursor.getString(3));
+                pDetails.setAddress(cursor.getString(4));
+                pDetails.setLandmarks(cursor.getString(5));
+                pDetails.setProduct(cursor.getString(6));
+                pDetails.setMethod(cursor.getString(7));
+                pDetails.setSub(cursor.getString(8));
+                pDetails.setSchrg(cursor.getString(9));
+                pDetails.setNet(cursor.getString(10));
+
+                details.add(pDetails);
+
+            }while(cursor.moveToNext());
+        }
+        return details;
+
+    }
+
+
+
 
 }

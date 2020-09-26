@@ -2,6 +2,7 @@ package com.example.burgerfreakz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,11 +42,9 @@ public class RidertoSystem extends AppCompatActivity {
     }
 
     public void viewRiders(View view){
-        DBHelper dbHelper = new DBHelper(this);
 
-        List Rnos = dbHelper.RiderInfo();
-
-        Toast.makeText(this, Rnos.toString() , Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, RiderDetails.class);
+        startActivity(intent);
 
     }
 
