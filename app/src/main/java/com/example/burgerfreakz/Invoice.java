@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 public class Invoice extends AppCompatActivity {
 
-    private String name,address,method,product,quantity,unit,total,service,net;
-    private TextView iName,iAddress,iProduct,iQuantity,iUnit,iTotal,iService,iNet,iMethod;
+    private String name,address,method,product,quantity,unit,total,service,net,discount;
+    private TextView iName,iAddress,iProduct,iQuantity,iUnit,iTotal,iDisc,iService,iNet,iMethod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class Invoice extends AppCompatActivity {
         iQuantity = findViewById(R.id.iQuan);
         iUnit = findViewById(R.id.iUnit);
         iTotal = findViewById(R.id.iTot);
+        iDisc = findViewById(R.id.iDisc);
         iService = findViewById(R.id.iServ);
         iNet = findViewById(R.id.iNet);
 
@@ -40,6 +41,7 @@ public class Invoice extends AppCompatActivity {
         quantity = intent.getStringExtra("quant");
         unit = intent.getStringExtra("unit");
         total = intent.getStringExtra("total");
+        discount = intent.getStringExtra("discount");
         service = intent.getStringExtra("service");
         net = intent.getStringExtra("net");
 
@@ -50,6 +52,7 @@ public class Invoice extends AppCompatActivity {
         iQuantity.setText(quantity);
         iUnit.setText(unit);
         iTotal.setText(total);
+        iDisc.setText(discount);
         iService.setText(service);
         iNet.setText(net);
 

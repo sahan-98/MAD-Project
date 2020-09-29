@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Payment extends AppCompatActivity {
 
-    private String name,address,product,quantity,unit,total,service,net;
+    private String name,address,product,quantity,unit,total,service,net,discount;
     private TextView pMethod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class Payment extends AppCompatActivity {
         quantity = intent.getStringExtra("quant");
         unit = intent.getStringExtra("unit");
         total = intent.getStringExtra("total");
+        discount = intent.getStringExtra("discount");
         service = intent.getStringExtra("service");
         net = intent.getStringExtra("net");
     }
@@ -46,6 +47,7 @@ public class Payment extends AppCompatActivity {
         intent.putExtra("quant",quantity);
         intent.putExtra("unit",unit);
         intent.putExtra("total",total);
+        intent.putExtra("discount",discount);
         intent.putExtra("service",service);
         intent.putExtra("net",net);
         startActivity(intent);

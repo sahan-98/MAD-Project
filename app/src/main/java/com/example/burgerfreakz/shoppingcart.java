@@ -40,6 +40,8 @@ public class shoppingcart extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        disc.setText("Rs. 0.0");
+
         Intent dintent = getIntent();
         pName = dintent.getStringExtra("pName");
         pPrice = dintent.getStringExtra("pPrice");
@@ -68,6 +70,7 @@ public class shoppingcart extends AppCompatActivity {
         Intent intent = new Intent(shoppingcart.this, Continue.class);
         intent.putExtra("product",pName);
         intent.putExtra("subTotal",subTotal.getText().toString());
+        intent.putExtra("discount",disc.getText().toString());
         intent.putExtra("sCharge",scharge.getText().toString());
         intent.putExtra("netTotal",netTotal.getText().toString());
         intent.putExtra("quantity",quantity.getText().toString());

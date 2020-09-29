@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
-import com.example.burgerfreakz.Customer;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,11 +102,6 @@ public class DBHelper extends SQLiteOpenHelper {
         long newRodId = db.insert(AppMaster.RiderDetails.TABLE_NAME, null, values);
         return newRodId;
     }
-
-
-
-
-
 
     public List<Riders> getAllRiders(){
 
@@ -232,31 +227,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-     public List<Customer> getAllCustomers(){
-        List<Customer> customers = new ArrayList();
-        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        String query = "SELECT * FROM "+AppMaster.CustomerDetails.TABLE_NAME;
 
-        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
-
-        if (cursor.moveToFirst()){
-            do {
-                Customer customer = new Customer();
-
-                customer.setId(cursor.getInt(0));
-                customer.setFname(cursor.getString(1));
-                customer.setLname(cursor.getString(2));
-                customer.setEmail(cursor.getString(3));
-                customer.setPhone(cursor.getString(4));
-                customer.setAddress(cursor.getString(5));
-                customer.setPassword(cursor.getString(6));
-
-                customers.add(customer);
-            }while (cursor.moveToNext());
-        }
-        return customers;
-
-     }
 
 
 }

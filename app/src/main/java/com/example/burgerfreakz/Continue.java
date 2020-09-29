@@ -21,7 +21,7 @@ public class Continue extends AppCompatActivity {
 
     RadioGroup radioPayGroup;
     RadioButton radioPayButton;
-    private String Pmethod,product,total,sCharg,netTotal,quantity,unit;
+    private String Pmethod,product,total,discount,sCharg,netTotal,quantity,unit;
     TextView fname,lname,address,phone,landmarks;
 
     @Override
@@ -46,6 +46,7 @@ public class Continue extends AppCompatActivity {
         Intent intent = getIntent();
         product = intent.getStringExtra("product");
         total = intent.getStringExtra("subTotal");
+        discount = intent.getStringExtra("discount");
         sCharg = intent.getStringExtra("sCharge");
         netTotal = intent.getStringExtra("netTotal");
         quantity = intent.getStringExtra("quantity");
@@ -68,6 +69,7 @@ public class Continue extends AppCompatActivity {
             intent.putExtra("quant",quantity);
             intent.putExtra("unit",unit);
             intent.putExtra("total",total);
+            intent.putExtra("discount",discount);
             intent.putExtra("service",sCharg);
             intent.putExtra("net",netTotal);
             startActivity(intent);
@@ -82,6 +84,7 @@ public class Continue extends AppCompatActivity {
             intent.putExtra("quant",quantity);
             intent.putExtra("unit",unit);
             intent.putExtra("total",total);
+            intent.putExtra("discount",discount);
             intent.putExtra("service",sCharg);
             intent.putExtra("net",netTotal);
             startActivity(intent);
