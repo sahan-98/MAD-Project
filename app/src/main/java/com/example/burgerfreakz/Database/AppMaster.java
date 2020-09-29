@@ -40,9 +40,13 @@ public class AppMaster {
         public static final String COLUMN_NAME_EMAIL = "email";
         public static final String COLUMN_NAME_PHONE = "phone";
         public static final String COLUMN_NAME_ADDRESS = "address";
-        public static final String COLUMN_NAME_PASSWORD = "password";
 
+    }
 
+    public static class Login implements BaseColumns{
+        public static final String TABLE_NAME = "Login";
+        public static final String COLUMN_NAME_USERNAME = "u_name";
+        public static final String COLUMN_NAME_PWRD = "pwrd";
     }
 
 

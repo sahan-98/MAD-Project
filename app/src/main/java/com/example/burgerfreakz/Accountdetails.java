@@ -47,7 +47,8 @@ public class Accountdetails extends AppCompatActivity {
         if(password.getText().toString().equals(conPassword.getText().toString()))
         {
 
-           long val = dbHelper.addCustomerDetails(firstname,lastname,mail,pHONE,Address,Password);
+           long val = dbHelper.addCustomerDetails(firstname,lastname,mail,pHONE,Address);
+            long val2 = dbHelper.addLoginInfo(mail,Password);
 
             if(val>0){
                 Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show();
