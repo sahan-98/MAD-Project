@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
+import com.example.burgerfreakz.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,23 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.RiderDetails.COLUMN_NAME_PHONE + " TEXT," +
                         AppMaster.RiderDetails.COLUMN_NAME_BNo + " TEXT)";
 
+        String SQL_CUSTOMER_ENTRIES =
+                "CREATE TABLE " + AppMaster.CustomerDetails.TABLE_NAME + " (" +
+                        AppMaster.CustomerDetails._ID + " INTEGER PRIMARY KEY, " +
+                        AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME + " TEXT," +
+                        AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME + " TEXT," +
+                        AppMaster.CustomerDetails.COLUMN_NAME_EMAIL + " TEXT," +
+                        AppMaster.CustomerDetails.COLUMN_NAME_PHONE + " TEXT," +
+                        AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS + " TEXT," +
+                        AppMaster.CustomerDetails.COLUMN_NAME_PASSWORD + " TEXT)" ;
+
+
+
+
         sqLiteDatabase.execSQL(SQL_RIDER_ENTRIES);
         sqLiteDatabase.execSQL(SQL_PAYMENT_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_CUSTOMER_ENTRIES);
+
     }
 
     @Override
@@ -86,6 +102,11 @@ public class DBHelper extends SQLiteOpenHelper {
         long newRodId = db.insert(AppMaster.RiderDetails.TABLE_NAME, null, values);
         return newRodId;
     }
+
+
+
+
+
 
     public List<Riders> getAllRiders(){
 
@@ -193,7 +214,49 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public long addCustomerDetails(String fname, String lName, String email,String phone, String address, String password) {
+        SQLiteDatabase db = getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME, fname);
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME, lName);
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_EMAIL, email);
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PHONE, phone);
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,address);
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PASSWORD, password);
+
+        ;
+
+
+        long newRowId = db.insert(AppMaster.CustomerDetails.TABLE_NAME, null, values);
+        return newRowId;
+    }
+
+     public List<Customer> getAllCustomers(){
+        List<Customer> customers = new ArrayList();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+AppMaster.CustomerDetails.TABLE_NAME;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Customer customer = new Customer();
+
+                customer.setId(cursor.getInt(0));
+                customer.setFname(cursor.getString(1));
+                customer.setLname(cursor.getString(2));
+                customer.setEmail(cursor.getString(3));
+                customer.setPhone(cursor.getString(4));
+                customer.setAddress(cursor.getString(5));
+                customer.setPassword(cursor.getString(6));
+
+                customers.add(customer);
+            }while (cursor.moveToNext());
+        }
+        return customers;
+
+     }
 
 
 }

@@ -49,4 +49,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="login">LOGIN</string>
     <string name="sginup">SIGN UP</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="address">Address</string>
 </resources>
