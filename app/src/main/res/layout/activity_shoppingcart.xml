@@ -77,6 +77,7 @@
         android:layout_width="70dp"
         android:layout_height="29dp"
         android:background="#E91E63"
+        android:onClick="Enter"
         android:text="Enter"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -171,23 +172,23 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/txtDisc"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.57" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/txtDisc"
         android:layout_width="109dp"
         android:layout_height="23dp"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="@+id/disctot"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.61" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/disctot"
         android:layout_width="109dp"
         android:layout_height="23dp"
         android:textSize="18sp"
@@ -308,7 +309,7 @@
         app:srcCompat="@drawable/cart" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName14"
+        android:id="@+id/txtPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
