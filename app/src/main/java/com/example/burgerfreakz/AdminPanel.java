@@ -12,6 +12,7 @@ public class AdminPanel extends AppCompatActivity {
 
     public Button button3 ;
     public Button button4 ;
+    public Button button5 ;
 
 
     @Override
@@ -35,6 +36,16 @@ public class AdminPanel extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1= new Intent(AdminPanel.this,RidertoOrder.class);
+                startActivity(intent1);
+            }
+        });
+
+        button5 = (Button) findViewById(R.id.customerMang);
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1= new Intent(AdminPanel.this,CustomerList.class);
                 startActivity(intent1);
             }
         });

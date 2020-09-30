@@ -82,7 +82,7 @@
         app:layout_constraintVertical_bias="0.917" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/signup"
         android:layout_width="117dp"
         android:layout_height="40dp"
         android:text="combo pack"

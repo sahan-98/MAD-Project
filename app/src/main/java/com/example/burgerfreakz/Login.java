@@ -33,6 +33,10 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Accountdetails.class);
         startActivity(intent);
     }
+    public void Login(View view){
+        Intent intent = new Intent(this, AdminPanel.class);
+        startActivity(intent);
+    }
 
 
 

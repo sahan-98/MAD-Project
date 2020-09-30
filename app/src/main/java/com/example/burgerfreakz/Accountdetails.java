@@ -3,6 +3,7 @@ package com.example.burgerfreakz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -61,6 +62,9 @@ public class Accountdetails extends AppCompatActivity {
             password.setText("");
             conPassword.setText("");
         }
+
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
 
 
 
