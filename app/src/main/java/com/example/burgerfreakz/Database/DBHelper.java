@@ -283,7 +283,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-     public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers(){
         List<Customer> customers = new ArrayList();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String query = "SELECT * FROM "+AppMaster.CustomerDetails.TABLE_NAME;
@@ -307,7 +307,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return customers;
 
      }
-    public Customer getCustomer(int id){
+
+     public Customer getCustomer(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.query(AppMaster.CustomerDetails.TABLE_NAME,new String[]{AppMaster.CustomerDetails._ID,AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,AppMaster.CustomerDetails.COLUMN_NAME_PHONE,AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS},AppMaster.CustomerDetails._ID + "= ?",new String[]{String.valueOf(id)},null,null,null);

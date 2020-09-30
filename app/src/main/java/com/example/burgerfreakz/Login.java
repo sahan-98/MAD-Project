@@ -38,15 +38,15 @@ public class Login extends AppCompatActivity {
 
         if(user.equals("Admin") && pass.equals("123")){
             startActivity(new Intent(this,AdminPanel.class));
-        }else  Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
+        }
 
-        if(usernames.indexOf(user)>=0){
+        else if(usernames.indexOf(user)>=0){
             if(passwords.get(usernames.indexOf(user)).equals(pass)){
                 Toast.makeText(this, "Login successfull !", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
             }
-        }
+        }else  Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
 
     }
 
