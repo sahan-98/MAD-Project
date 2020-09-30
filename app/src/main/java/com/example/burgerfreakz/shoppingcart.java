@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class shoppingcart extends AppCompatActivity {
 
 
     String pName, pPrice, pSize;
-    TextView description, quantity, subTotal, netTotal, scharge;
-    Float price, service, Total;
+    TextView description, quantity, subTotal, netTotal, scharge,promo,disc,discTot;
+    Float price, service, Total,discount = Float.valueOf(0);
     Integer quant = 1;
 
     @Override
@@ -28,13 +29,18 @@ public class shoppingcart extends AppCompatActivity {
         netTotal = findViewById(R.id.txtNettotal);
         scharge = findViewById(R.id.txtScharge);
         quantity = findViewById(R.id.textQuantity);
-
+        promo = findViewById(R.id.txtPromo);
+        disc = findViewById(R.id.txtDisc);
+        discTot = findViewById(R.id.disctot);
         quantity.setText(String.valueOf(quant));
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        disc.setText("Rs. 0.0");
 
         Intent dintent = getIntent();
         pName = dintent.getStringExtra("pName");
@@ -50,12 +56,25 @@ public class shoppingcart extends AppCompatActivity {
         netTotal.setText("Rs. " + String.valueOf(price + service));
 
     }
+    public void Enter(View view){
+        if(promo.getText().toString().equals("BFZ")){
+            discount = Float.valueOf(100);
+            disc.setText("Rs. "+ String.valueOf(discount));
+            discTot.setText("Rs. "+ String.valueOf(Total - discount));
+            netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
+        }else {
+            Toast.makeText(this, "Invalid Promo Code", Toast.LENGTH_SHORT).show();
+        }
+    }
     public void Continue(View view){
         Intent intent = new Intent(shoppingcart.this, Continue.class);
         intent.putExtra("product",pName);
         intent.putExtra("subTotal",subTotal.getText().toString());
+        intent.putExtra("discount",disc.getText().toString());
         intent.putExtra("sCharge",scharge.getText().toString());
         intent.putExtra("netTotal",netTotal.getText().toString());
+        intent.putExtra("quantity",quantity.getText().toString());
+        intent.putExtra("unitPrice",pPrice);
         startActivity(intent);
     }
 
@@ -63,7 +82,8 @@ public class shoppingcart extends AppCompatActivity {
                 quant = quant + 1;
                 Total = price * quant;
                 subTotal.setText("Rs. " + String.valueOf(Total));
-                netTotal.setText("Rs. " + String.valueOf(Total + service));
+                discTot.setText("Rs. "+ String.valueOf(Total - discount));
+                netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
                 quantity.setText(String.valueOf(quant));
     }
 
@@ -74,7 +94,8 @@ public class shoppingcart extends AppCompatActivity {
                     Total = price * quant;
                 }
                 subTotal.setText("Rs. " + String.valueOf(Total));
-                netTotal.setText("Rs. " + String.valueOf(Total + service));
+                discTot.setText("Rs. "+ String.valueOf(Total - discount));
+                netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
                 quantity.setText(String.valueOf(quant));
     }
 
@@ -83,8 +104,11 @@ public class shoppingcart extends AppCompatActivity {
                 price = Float.valueOf(0);
                 service = Float.valueOf(0);
                 description.setText("");
+                promo.setText("");
                 subTotal.setText("Rs. 0.00");
                 scharge.setText("Rs. 0.00");
+                disc.setText("Rs. 0.00");
+                discTot.setText("Rs. 0.00");
                 netTotal.setText("Rs. 0.00");
                 quantity.setText("1");
 

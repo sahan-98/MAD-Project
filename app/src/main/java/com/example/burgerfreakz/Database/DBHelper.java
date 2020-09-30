@@ -257,25 +257,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return customers;
 
      }
-    public Customer getCustomer(int id){
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-        Cursor cursor = sqLiteDatabase.query(AppMaster.CustomerDetails.TABLE_NAME,new String[]{AppMaster.CustomerDetails._ID,AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,AppMaster.CustomerDetails.COLUMN_NAME_PHONE,AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,AppMaster.CustomerDetails.COLUMN_NAME_PASSWORD},AppMaster.CustomerDetails._ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
-        Customer customer;
-        if(cursor != null){
-            cursor.moveToFirst();
-            customer = new Customer(
-                    cursor.getInt(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6)
-            );
-            return customer;
-        }
-        return null;
-    }
 
 }

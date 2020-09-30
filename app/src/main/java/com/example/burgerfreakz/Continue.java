@@ -21,7 +21,7 @@ public class Continue extends AppCompatActivity {
 
     RadioGroup radioPayGroup;
     RadioButton radioPayButton;
-    String Pmethod,product,total,sCharg,netTotal;
+    private String Pmethod,product,total,discount,sCharg,netTotal,quantity,unit;
     TextView fname,lname,address,phone,landmarks;
 
     @Override
@@ -46,9 +46,11 @@ public class Continue extends AppCompatActivity {
         Intent intent = getIntent();
         product = intent.getStringExtra("product");
         total = intent.getStringExtra("subTotal");
+        discount = intent.getStringExtra("discount");
         sCharg = intent.getStringExtra("sCharge");
         netTotal = intent.getStringExtra("netTotal");
-
+        quantity = intent.getStringExtra("quantity");
+        unit = intent.getStringExtra("unitPrice");
 
     }
 
@@ -61,11 +63,30 @@ public class Continue extends AppCompatActivity {
 
         if(Pmethod.equals("Pay Now")){
             Intent intent = new Intent(Continue.this, Payment.class);
+            intent.putExtra("name",fname.getText().toString() +" "+ lname.getText().toString());
+            intent.putExtra("address",address.getText().toString());
+            intent.putExtra("product",product);
+            intent.putExtra("quant",quantity);
+            intent.putExtra("unit",unit);
+            intent.putExtra("total",total);
+            intent.putExtra("discount",discount);
+            intent.putExtra("service",sCharg);
+            intent.putExtra("net",netTotal);
             startActivity(intent);
 
         }else if(Pmethod.equals("Pay On Delivery")){
             Toast.makeText(Continue.this, "Thank you!! You can Pay on Delivery !!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Home.class);
+            Intent intent = new Intent(this, Invoice.class);
+            intent.putExtra("name",fname.getText().toString() +" "+ lname.getText().toString());
+            intent.putExtra("address",address.getText().toString());
+            intent.putExtra("method",Pmethod);
+            intent.putExtra("product",product);
+            intent.putExtra("quant",quantity);
+            intent.putExtra("unit",unit);
+            intent.putExtra("total",total);
+            intent.putExtra("discount",discount);
+            intent.putExtra("service",sCharg);
+            intent.putExtra("net",netTotal);
             startActivity(intent);
         }
 
