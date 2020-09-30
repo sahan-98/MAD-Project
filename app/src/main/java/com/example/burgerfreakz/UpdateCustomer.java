@@ -2,12 +2,12 @@ package com.example.burgerfreakz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Database.DBHelper;
 
 
@@ -40,7 +40,6 @@ public class UpdateCustomer extends AppCompatActivity {
         email.setText(customer.getEmail());
         phone.setText(customer.getPhone());
         address.setText(customer.getAddress());
-        password.setText(customer.getPassword());
 
 
         editButton.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +50,7 @@ public class UpdateCustomer extends AppCompatActivity {
                 String em = email.getText().toString();
                 String ep = phone.getText().toString();
                 String ea = address.getText().toString();
-                String pw = password.getText().toString();
+
 
                 /*Customer customer = new Customer(Integer.parseInt(id),fname,lname,email,phone,address,password);
                 int state = dbHelper.(customer);

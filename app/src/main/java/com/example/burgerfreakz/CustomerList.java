@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.opengl.GLDebugHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.burgerfreakz.Adapters.CustomerAdapter;
+import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Database.DBHelper;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class CustomerList extends AppCompatActivity {
 
         customers = dbHelper.getAllCustomers();
 
-        CustomerAdapter adapter = new CustomerAdapter(CustomerList.this, R.layout.singlecustomer, customers);
+        CustomerAdapter adapter = new CustomerAdapter(CustomerList.this, R.layout.activity_singlecustomer, customers);
 
         listView.setAdapter(adapter);
 

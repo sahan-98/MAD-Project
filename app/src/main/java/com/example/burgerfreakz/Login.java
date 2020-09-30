@@ -42,7 +42,6 @@ public class Login extends AppCompatActivity {
 
         if(usernames.indexOf(user)>=0){
             if(passwords.get(usernames.indexOf(user)).equals(pass)){
-                startActivity(new Intent(this,MyAccount.class));
                 Toast.makeText(this, "Login successfull !", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
@@ -71,10 +70,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Accountdetails.class);
         startActivity(intent);
     }
-    public void Login(View view){
-        Intent intent = new Intent(this, AdminPanel.class);
-        startActivity(intent);
-    }
+
 
 
 

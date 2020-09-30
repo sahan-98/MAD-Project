@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Database.DBHelper;
 
 public class MoreInfo extends AppCompatActivity {
     private DBHelper dbHelper;
-    private TextView  fname,lname,email,phone,add;
+    private TextView  fname,lname,email,phone,add,header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,12 @@ public class MoreInfo extends AppCompatActivity {
         email = (TextView) findViewById(R.id.eemail);
         phone = (TextView) findViewById(R.id.pnumber);
         add = (TextView) findViewById(R.id.add);
-
+        header = findViewById(R.id.mHeader);
 
         final String id = getIntent().getStringExtra("Id");
         Customer customer = dbHelper.getCustomer(Integer.parseInt(id));
 
+        header.setText("Hi " + customer.getFname() + " " + customer.getLname() + " !!");
 
         fname.setText(customer.getFname());
         lname.setText(customer.getLname());

@@ -1,29 +1,29 @@
-package com.example.burgerfreakz;
+package com.example.burgerfreakz.Classes;
 
 public class Customer {
     private int id;
-    private  String fname,lname,email,phone,address,password;
+    private  String fname,lname,email,phone,address;
 
     public Customer(){
 
     }
 
-    public Customer(int id,String fname, String lname, String email, String phone, String address, String password) {
+    public Customer(int id,String fname, String lname, String email, String phone, String address) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.password = password;
+
     }
 
-    public Customer(String fname, String lname, String email, String phone, String address, String password) {
+    public Customer(String fname, String lname, String email, String phone, String address) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.password = password;
+
     }
 
     public int getId() {
@@ -74,11 +74,5 @@ public class Customer {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

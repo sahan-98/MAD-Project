@@ -9,7 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
-import com.example.burgerfreakz.Customer;
+import com.example.burgerfreakz.Classes.Customer;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,21 +54,80 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME + " TEXT," +
                         AppMaster.CustomerDetails.COLUMN_NAME_EMAIL + " TEXT," +
                         AppMaster.CustomerDetails.COLUMN_NAME_PHONE + " TEXT," +
-                        AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS + " TEXT," +
-                        AppMaster.CustomerDetails.COLUMN_NAME_PASSWORD + " TEXT)" ;
+                        AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS + " TEXT)" ;
 
+
+        String SQL_LOGIN_ENTRIES =
+                "CREATE TABLE " + AppMaster.Login.TABLE_NAME + " (" +
+                        AppMaster.Login._ID + " INTEGER PRIMARY KEY ," +
+                        AppMaster.Login.COLUMN_NAME_USERNAME + " TEXT," +
+                        AppMaster.Login.COLUMN_NAME_PWRD + " TEXT )";
 
 
 
         sqLiteDatabase.execSQL(SQL_RIDER_ENTRIES);
         sqLiteDatabase.execSQL(SQL_PAYMENT_ENTRIES);
         sqLiteDatabase.execSQL(SQL_CUSTOMER_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_LOGIN_ENTRIES);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+
+    }
+
+    public long addLoginInfo(String uname,String pwrd){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Login.COLUMN_NAME_USERNAME,uname);
+        values.put(AppMaster.Login.COLUMN_NAME_PWRD,pwrd);
+
+        long newRowId = db.insert(AppMaster.Login.TABLE_NAME,null,values);
+        return newRowId;
+
+    }
+
+    public List readLoginInfo(String req){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] projection = {
+                AppMaster.Login._ID,
+                AppMaster.Login.COLUMN_NAME_USERNAME,
+                AppMaster.Login.COLUMN_NAME_PWRD
+        };
+        String sortorder = AppMaster.Login.COLUMN_NAME_USERNAME + " DESC";
+
+        Cursor cursor = db.query(
+                AppMaster.Login.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                sortorder
+        );
+
+        List usernames = new ArrayList();
+        List passwords = new ArrayList();
+
+        while(cursor.moveToNext()){
+            String username = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.Login.COLUMN_NAME_USERNAME));
+            String password = cursor.getString(cursor.getColumnIndexOrThrow(AppMaster.Login.COLUMN_NAME_PWRD));
+            usernames.add(username);
+            passwords.add(password);
+        }
+        cursor.close();
+
+        if(req == "user"){
+            return usernames;
+        }else if(req == "password"){
+            return passwords;
+        }else{
+            return null;
+        }
 
     }
 
@@ -102,11 +162,6 @@ public class DBHelper extends SQLiteOpenHelper {
         long newRodId = db.insert(AppMaster.RiderDetails.TABLE_NAME, null, values);
         return newRodId;
     }
-
-
-
-
-
 
     public List<Riders> getAllRiders(){
 
@@ -145,7 +200,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         Cursor cursor = db.query(AppMaster.RiderDetails.TABLE_NAME,new String[]{AppMaster.RiderDetails._ID,AppMaster.RiderDetails.COLUMN_NAME_NAME,
-                AppMaster.RiderDetails.COLUMN_NAME_RNO,AppMaster.RiderDetails.COLUMN_NAME_PHONE,AppMaster.RiderDetails.COLUMN_NAME_BNo},
+                        AppMaster.RiderDetails.COLUMN_NAME_RNO,AppMaster.RiderDetails.COLUMN_NAME_PHONE,AppMaster.RiderDetails.COLUMN_NAME_BNo},
                 AppMaster.RiderDetails._ID + "= ?",new String[]{String.valueOf(id)},
                 null,null,null);
 
@@ -214,7 +269,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public long addCustomerDetails(String fname, String lName, String email,String phone, String address, String password) {
+    public long addCustomerDetails(String fname, String lName, String email,String phone, String address) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -223,10 +278,6 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(AppMaster.CustomerDetails.COLUMN_NAME_EMAIL, email);
         values.put(AppMaster.CustomerDetails.COLUMN_NAME_PHONE, phone);
         values.put(AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,address);
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PASSWORD, password);
-
-        ;
-
 
         long newRowId = db.insert(AppMaster.CustomerDetails.TABLE_NAME, null, values);
         return newRowId;
@@ -249,7 +300,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 customer.setEmail(cursor.getString(3));
                 customer.setPhone(cursor.getString(4));
                 customer.setAddress(cursor.getString(5));
-                customer.setPassword(cursor.getString(6));
 
                 customers.add(customer);
             }while (cursor.moveToNext());
@@ -257,6 +307,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return customers;
 
      }
+    public Customer getCustomer(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(AppMaster.CustomerDetails.TABLE_NAME,new String[]{AppMaster.CustomerDetails._ID,AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,AppMaster.CustomerDetails.COLUMN_NAME_PHONE,AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS},AppMaster.CustomerDetails._ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
+        Customer customer;
+        if(cursor != null){
+            cursor.moveToFirst();
+            customer = new Customer(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+            return customer;
+        }
+        return null;
+    }
+
 
 
 }
