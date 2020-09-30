@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -30,8 +31,26 @@ public class Customize extends AppCompatActivity {
         productName = findViewById(R.id.txtCustomize);
         price = findViewById(R.id.custPrice);
         sizeGroup = findViewById(R.id.sizeGroup);
+        ImageView imageView = (ImageView) findViewById(R.id.productImage);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            int res_img = bundle.getInt("imageView13");
+            imageView.setImageResource(res_img);
+        }
 
 
+    }
+
+    protected void onResume() {
+        super.onResume();
+
+        Intent intent = getIntent();
+        String product= intent.getStringExtra("pName");
+        String pprice = intent.getStringExtra("pPrice");
+
+        productName.setText(product);
+        price.setText(pprice);
     }
 
     public void Buynow(View view){

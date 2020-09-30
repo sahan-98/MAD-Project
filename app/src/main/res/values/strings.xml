@@ -51,4 +51,6 @@
     <string name="sginup">SIGN UP</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="address">Address</string>
+    <string name="size">Regular/Large</string>
+    <string name="employeeD">EMPLOYEE MANAGEMENT</string>
 </resources>

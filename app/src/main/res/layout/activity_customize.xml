@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Customize">
 
+    <TextView
+        android:id="@+id/rs"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:text="Rs."
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.548" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="410dp"
@@ -60,9 +74,9 @@
 
     <TextView
         android:id="@+id/txtCustomize"
-        android:layout_width="258dp"
+        android:layout_width="307dp"
         android:layout_height="40dp"
-        android:text="@string/burger_2"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +88,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/productImage"
         android:layout_width="229dp"
         android:layout_height="133dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,25 +96,23 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225"
-        app:srcCompat="@drawable/f2" />
+        app:layout_constraintVertical_bias="0.225" />
 
     <TextView
         android:id="@+id/custPrice"
         android:layout_width="104dp"
         android:layout_height="46dp"
         android:background="@android:color/holo_red_dark"
-        android:text="280"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintVertical_bias="0.548" />
 
     <Button
         android:id="@+id/custBuy"
