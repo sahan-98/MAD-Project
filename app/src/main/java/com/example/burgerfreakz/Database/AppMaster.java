@@ -32,5 +32,18 @@ public class AppMaster {
 
     }
 
+    public static class CustomerDetails implements BaseColumns{
+
+        public static final String TABLE_NAME = "customer";
+        public static final String COLUMN_NAME_FIRSTNAME = "first_name";
+        public static final String COLUMN_NAME_LASTNAME = "last_name";
+        public static final String COLUMN_NAME_EMAIL = "email";
+        public static final String COLUMN_NAME_PHONE = "phone";
+        public static final String COLUMN_NAME_ADDRESS = "address";
+        public static final String COLUMN_NAME_PASSWORD = "password";
+
+
+    }
+
 
 }

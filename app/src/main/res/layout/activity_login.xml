@@ -27,6 +27,7 @@
         android:layout_width="360dp"
         android:layout_height="40dp"
         android:background="#4CAF50"
+        android:onClick="SignUp"
         android:text="@string/sginup"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,23 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaymentDetails"></activity>
+        <activity android:name=".CustomerList"></activity>
+        <activity android:name=".PaymentDetails" />
         <activity android:name=".PaymentRow" />
         <activity android:name=".UpdateRider" />
         <activity android:name=".RiderDetails" />
         <activity android:name=".riderRow" />
         <activity android:name=".Login" />
-        <activity android:name=".Email" />
-        <activity android:name=".Phone" />
-        <activity android:name=".Password" />
-        <activity android:name=".Addressdetails" />
-        <activity android:name=".Address" />
         <activity android:name=".Order" />
         <activity android:name=".Accountdetails" />
         <activity android:name=".MyAccount" />
-        <activity android:name=".Customer" />
         <activity android:name=".Feedback" />
-        <activity android:name=".RidertoSystem"/>
+        <activity android:name=".RidertoSystem" />
         <activity android:name=".RidertoOrder" />
         <activity android:name=".Payment" />
         <activity android:name=".Continue" />
@@ -40,7 +35,7 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        </activity>
+    </activity>
     </application>
 
 </manifest>

@@ -154,7 +154,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/fname"
         android:layout_width="327dp"
         android:layout_height="53dp"
         android:ems="10"
