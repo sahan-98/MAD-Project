@@ -58,5 +58,12 @@ public class AppMaster {
 
     }
 
+    public static class Feedbacks implements BaseColumns {
+        public static final String TABLE_NAME = "Feedback";
+        public static final String COLUMN_NAME_FEEDCOMMENT = "FeedComment";
+        public static final String COLUMN_NAME_FEEDMAIL = "FeedMail";
+
+    }
+
 
 }

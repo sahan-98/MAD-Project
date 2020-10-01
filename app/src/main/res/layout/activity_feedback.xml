@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aund"
+    android:background="#FFFFFF"
     tools:context=".Feedback">
 
     <androidx.appcompat.widget.Toolbar
@@ -72,7 +72,7 @@
 
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/feedSubmit"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="359dp"
         android:layout_height="53dp"
@@ -83,10 +83,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
+        app:layout_constraintVertical_bias="0.843" />
 
     <Button
         android:id="@+id/button2"
@@ -172,15 +171,13 @@
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/feedbackTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         android:text="Your Feedback Counts!"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
@@ -190,15 +187,13 @@
         app:layout_constraintVertical_bias="0.143" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/feedtop2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="We would really like to know your opinion"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -207,85 +202,66 @@
         app:layout_constraintVertical_bias="0.258" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/commenttop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
         android:layout_marginEnd="87dp"
-        android:layout_marginRight="87dp"
         android:text="Please write your comments below:"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="252dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginEnd="81dp"
-        android:background="#88F6F6F6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintVertical_bias="0.393" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView"
-        android:layout_width="272dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
+        android:id="@+id/FeedComment"
+        android:layout_width="276dp"
+        android:layout_height="110dp"
         android:background="#FFFFFF"
-        android:text="I Think"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="265dp"
-        android:layout_height="21dp"
+        android:id="@+id/email"
+        android:layout_width="276dp"
+        android:layout_height="37dp"
         android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
         android:layout_marginEnd="103dp"
-        android:layout_marginRight="103dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintVertical_bias="0.695" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/feedMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
         android:layout_marginEnd="270dp"
-        android:layout_marginRight="270dp"
         android:text="EMAIL ADRESS:"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.709" />
+        app:layout_constraintVertical_bias="0.637" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

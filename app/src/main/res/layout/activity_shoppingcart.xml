@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="0.904" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/feedbackTop"
         android:layout_width="151dp"
         android:layout_height="40dp"
         android:text="@string/basket"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.134" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/feedMail"
         android:layout_width="192dp"
         android:layout_height="42dp"
         android:text="Order Summary"
@@ -161,7 +161,7 @@
         android:layout_height="51dp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/feedbackTop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.221" />
 
@@ -291,7 +291,7 @@
         android:layout_width="119dp"
         android:layout_height="281dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/feedMail"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.962"
         app:srcCompat="@drawable/burgers" />
@@ -316,7 +316,7 @@
         android:hint="Enter Discount Code"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/feedMail"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
