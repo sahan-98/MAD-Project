@@ -13,6 +13,7 @@ public class AdminPanel extends AppCompatActivity {
     public Button button3 ;
     public Button button4 ;
     public Button button5 ;
+    public Button button6 ;
 
 
     @Override
@@ -46,6 +47,16 @@ public class AdminPanel extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1= new Intent(AdminPanel.this,CustomerList.class);
+                startActivity(intent1);
+            }
+        });
+
+        button6 = (Button) findViewById(R.id.feedback1);
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1= new Intent(AdminPanel.this,FeedbackDetails.class);
                 startActivity(intent1);
             }
         });

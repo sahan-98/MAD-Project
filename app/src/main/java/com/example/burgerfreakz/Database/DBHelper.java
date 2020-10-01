@@ -523,6 +523,52 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public List<FeedbackV> getAllFeedback() {
+        List<FeedbackV> feedbackVS = new ArrayList();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+ AppMaster.Feedbacks.TABLE_NAME;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                FeedbackV feedbackV = new FeedbackV();
+
+                feedbackV.setId(cursor.getInt(0));
+                feedbackV.setComment(cursor.getString(1));
+                feedbackV.setFmail(cursor.getString(2));
+
+                feedbackVS.add(feedbackV);
+            }while (cursor.moveToNext());
+        }
+        return feedbackVS;
+
+    }
+
+    public void deletefeedback(int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(AppMaster.Feedbacks.TABLE_NAME, AppMaster.Feedbacks._ID +" =?",new String[]{String.valueOf(Id)});
+        sqLiteDatabase.close();
+    }
+
+    public FeedbackV getfeedback (int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(AppMaster.Feedbacks.TABLE_NAME,new String[]{AppMaster.Feedbacks._ID, AppMaster.Feedbacks.COLUMN_NAME_FEEDCOMMENT, AppMaster.Feedbacks.COLUMN_NAME_FEEDMAIL}, AppMaster.Feedbacks._ID + "= ?",new String[]{String.valueOf(Id)},null,null,null);
+        FeedbackV feedbackV;
+        if(cursor != null){
+            cursor.moveToFirst();
+            feedbackV = new FeedbackV(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+            return feedbackV;
+        }
+        return null;
+
+    }
+
 
 
 
