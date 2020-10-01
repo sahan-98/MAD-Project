@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProduct">
+    tools:context=".UpdateProduct">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -205,17 +205,16 @@
         app:layout_constraintVertical_bias="0.359" />
 
     <Button
-        android:id="@+id/buttonSub"
-        android:layout_width="118dp"
-        android:layout_height="45dp"
-        android:onClick="addProduct"
-        android:text="@string/btn_9"
+        android:id="@+id/btnUpd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.786" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

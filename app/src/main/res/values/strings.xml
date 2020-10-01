@@ -53,4 +53,6 @@
     <string name="address">Address</string>
     <string name="size">Regular/Large</string>
     <string name="employeeD">EMPLOYEE MANAGEMENT</string>
+    <string name="btn_9">SUBMIT</string>
+    <string name="btn_8">UPDATE</string>
 </resources>

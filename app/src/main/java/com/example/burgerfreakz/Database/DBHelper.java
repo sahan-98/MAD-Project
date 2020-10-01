@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
+import com.example.burgerfreakz.Product;
 
 
 import java.util.ArrayList;
@@ -63,12 +64,23 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.Login.COLUMN_NAME_USERNAME + " TEXT," +
                         AppMaster.Login.COLUMN_NAME_PWRD + " TEXT )";
 
+        String SQL_CREATE_ENTRIES =
+                "CREATE TABLE " + AppMaster.Products.TABLE_NAME + "(" +
+                        AppMaster.Products._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        AppMaster.Products.COLUMN_NAME_PRODUCTNAME + " TEXT NOT NULL," +
+                        AppMaster.Products.COLUMN_NAME_PRODUCTCODE + " TEXT NOT NULL," +
+                        AppMaster.Products.COLUMN_NAME_PRODUCTPRICE + " TEXT NOT NULL," +
+                        AppMaster.Products.COLUMN_NAME_PRODUCTSIZE + " TEXT NOT NULL);";
+
+
+
 
 
         sqLiteDatabase.execSQL(SQL_RIDER_ENTRIES);
         sqLiteDatabase.execSQL(SQL_PAYMENT_ENTRIES);
         sqLiteDatabase.execSQL(SQL_CUSTOMER_ENTRIES);
         sqLiteDatabase.execSQL(SQL_LOGIN_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
 
     }
 
@@ -326,6 +338,85 @@ public class DBHelper extends SQLiteOpenHelper {
             return customer;
         }
         return null;
+    }
+
+    public long addProduct(Product product) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTNAME, product.getProName());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTCODE, product.getProCode());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTPRICE, product.getProPrice());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTSIZE, product.getProSize());
+
+        long newRowId = sqLiteDatabase.insert(AppMaster.Products.TABLE_NAME, null, values);
+        return newRowId;
+
+    }
+
+    public List<Product> getAllProduct() {
+        List<Product> products = new ArrayList();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+ AppMaster.Products.TABLE_NAME;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Product product = new Product();
+
+                product.setId(cursor.getInt(0));
+                product.setProName(cursor.getString(1));
+                product.setProCode(cursor.getString(2));
+                product.setProPrice(cursor.getString(3));
+                product.setProSize(cursor.getString(4));
+
+                products.add(product);
+            }while (cursor.moveToNext());
+        }
+        return products;
+
+    }
+
+    public void deleteproduct(int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(AppMaster.Products.TABLE_NAME, AppMaster.Products._ID +" =?",new String[]{String.valueOf(Id)});
+        sqLiteDatabase.close();
+    }
+
+    public Product getProduct (int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(AppMaster.Products.TABLE_NAME,new String[]{AppMaster.Products._ID, AppMaster.Products.COLUMN_NAME_PRODUCTNAME, AppMaster.Products.COLUMN_NAME_PRODUCTCODE, AppMaster.Products.COLUMN_NAME_PRODUCTPRICE, AppMaster.Products.COLUMN_NAME_PRODUCTSIZE}, AppMaster.Products._ID + "= ?",new String[]{String.valueOf(Id)},null,null,null);
+        Product product;
+        if(cursor != null){
+            cursor.moveToFirst();
+            product = new Product(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4)
+            );
+            return product;
+        }
+        return null;
+
+    }
+    public int updateProduct(Product product){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTNAME,product.getProName());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTCODE,product.getProCode());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTPRICE,product.getProPrice());
+        values.put(AppMaster.Products.COLUMN_NAME_PRODUCTSIZE,product.getProSize());
+
+        int status = sqLiteDatabase.update(AppMaster.Products.TABLE_NAME,values, AppMaster.Products._ID +" =?",
+                new String[]{String.valueOf(product.getId())});
+
+        sqLiteDatabase.close();
+        return status;
     }
 
 

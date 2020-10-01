@@ -25,8 +25,8 @@ public class AdminPanel extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1= new Intent(AdminPanel.this,AddProduct.class);
-                startActivity(intent1);
+                Intent intent= new Intent(AdminPanel.this,ProductList.class);
+                startActivity(intent);
             }
         });
 

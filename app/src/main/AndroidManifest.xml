@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".singlecustomer"></activity>
+        <activity android:name=".UpdateProduct"></activity>
+        <activity android:name=".ProductMoreInfo" />
+        <activity android:name=".ProductList" />
+        <activity android:name=".singlecustomer" />
         <activity android:name=".CustomerList" />
         <activity android:name=".MoreInfo" />
         <activity android:name=".PaymentDetails" />

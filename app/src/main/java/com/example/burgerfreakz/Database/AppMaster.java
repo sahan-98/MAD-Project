@@ -49,5 +49,14 @@ public class AppMaster {
         public static final String COLUMN_NAME_PWRD = "pwrd";
     }
 
+    public static class Products implements BaseColumns{
+        public static final String TABLE_NAME = "Product";
+        public static final String COLUMN_NAME_PRODUCTNAME = "ProductName";
+        public static final String COLUMN_NAME_PRODUCTCODE = "ProductCode";
+        public static final String COLUMN_NAME_PRODUCTPRICE = "ProductPrice";
+        public static final String COLUMN_NAME_PRODUCTSIZE = "ProductSize";
+
+    }
+
 
 }

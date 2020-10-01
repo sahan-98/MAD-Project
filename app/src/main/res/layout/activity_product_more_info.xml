@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProduct">
+    tools:context=".UpdateProduct">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -149,73 +149,53 @@
         app:layout_constraintVertical_bias="0.026"
         app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="327dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:hint="@string/form_1"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/pname"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.25" />
 
-    <EditText
-        android:id="@+id/etPrice"
-        android:layout_width="327dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:hint="@string/form_3"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/pcode"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.393" />
 
-    <EditText
-        android:id="@+id/etSize"
-        android:layout_width="327dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:hint="@string/form_5"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/pprice"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.547" />
 
-    <EditText
-        android:id="@+id/etCode"
-        android:layout_width="327dp"
-        android:layout_height="53dp"
-        android:ems="10"
-        android:hint="@string/form_2"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/psize"
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
-
-    <Button
-        android:id="@+id/buttonSub"
-        android:layout_width="118dp"
-        android:layout_height="45dp"
-        android:onClick="addProduct"
-        android:text="@string/btn_9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.707" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
