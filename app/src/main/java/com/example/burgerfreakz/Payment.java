@@ -1,4 +1,4 @@
-package com.example.burgerfreakz.Classes;
+package com.example.burgerfreakz;
 
 import androidx.appcompat.app.AppCompatActivity;
 

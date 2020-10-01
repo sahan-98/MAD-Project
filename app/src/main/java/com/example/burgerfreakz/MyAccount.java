@@ -40,6 +40,12 @@ public class MyAccount extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void ChangePassword(View view){
+        Intent intent = new Intent(this, changePassword.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
+    }
+
     public void Logout  (View view){
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);

@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.burgerfreakz.Database.DBHelper;
-import com.example.burgerfreakz.Classes.Payment;
 
 public class Continue extends AppCompatActivity {
 

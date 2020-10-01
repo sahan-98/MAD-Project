@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-import com.example.burgerfreakz.Adapters.CustomerAdapter;
+import com.example.burgerfreakz.Classes.LoginD;
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
@@ -144,6 +144,40 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public LoginD getPassword(String username){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.query(AppMaster.Login.TABLE_NAME,new String[]{AppMaster.Login._ID,
+                        AppMaster.Login.COLUMN_NAME_USERNAME,
+                        AppMaster.Login.COLUMN_NAME_PWRD}, AppMaster.Login.COLUMN_NAME_USERNAME + "= ?",new String[]{username},
+                null,null,null);
+        LoginD loginD;
+        if(cursor != null){
+            cursor.moveToFirst();
+
+            loginD = new LoginD(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+            return loginD;
+        }
+        return null;
+    }
+
+    public int updatePassword(LoginD loginD){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Login.COLUMN_NAME_USERNAME,loginD.getUsername());
+        values.put(AppMaster.Login.COLUMN_NAME_PWRD,loginD.getPassword());
+
+        int status = sqLiteDatabase.update(AppMaster.Login.TABLE_NAME,values, AppMaster.Login._ID + " =?",
+                new String[]{String.valueOf(loginD.getId())});
+
+        sqLiteDatabase.close();
+        return status;
+    }
+
     public long addPaymentDetails(String fname, String lName, String phone, String add, String land, String product,String method, String sub, String chrg, String net) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -161,6 +195,37 @@ public class DBHelper extends SQLiteOpenHelper {
 
         long newRowId = db.insert(AppMaster.PaymentDetails.TABLE_NAME, null, values);
         return newRowId;
+    }
+
+    public List<PDetails> getPaymentDetails(){
+
+        List<PDetails> details = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT * FROM "+ AppMaster.PaymentDetails.TABLE_NAME;
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                PDetails pDetails = new PDetails();
+                pDetails.setId(cursor.getInt(0));
+                pDetails.setFname(cursor.getString(1));
+                pDetails.setLname(cursor.getString(2));
+                pDetails.setPhone(cursor.getString(3));
+                pDetails.setAddress(cursor.getString(4));
+                pDetails.setLandmarks(cursor.getString(5));
+                pDetails.setProduct(cursor.getString(6));
+                pDetails.setMethod(cursor.getString(7));
+                pDetails.setSub(cursor.getString(8));
+                pDetails.setSchrg(cursor.getString(9));
+                pDetails.setNet(cursor.getString(10));
+
+                details.add(pDetails);
+
+            }while(cursor.moveToNext());
+        }
+        return details;
+
     }
 
     public long addRiderDetails(String name, String rno, String phone, String bno) {
@@ -234,7 +299,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
-
     public int updateRider(Riders riders){
         SQLiteDatabase db = getWritableDatabase();
 
@@ -252,38 +316,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
-    public List<PDetails> getPaymentDetails(){
-
-        List<PDetails> details = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT * FROM "+ AppMaster.PaymentDetails.TABLE_NAME;
-
-        Cursor cursor = db.rawQuery(query,null);
-
-        if(cursor.moveToFirst()){
-            do{
-                PDetails pDetails = new PDetails();
-                pDetails.setId(cursor.getInt(0));
-                pDetails.setFname(cursor.getString(1));
-                pDetails.setLname(cursor.getString(2));
-                pDetails.setPhone(cursor.getString(3));
-                pDetails.setAddress(cursor.getString(4));
-                pDetails.setLandmarks(cursor.getString(5));
-                pDetails.setProduct(cursor.getString(6));
-                pDetails.setMethod(cursor.getString(7));
-                pDetails.setSub(cursor.getString(8));
-                pDetails.setSchrg(cursor.getString(9));
-                pDetails.setNet(cursor.getString(10));
-
-                details.add(pDetails);
-
-            }while(cursor.moveToNext());
-        }
-        return details;
-
-    }
-
     public long addCustomerDetails(String fname, String lName, String email,String phone, String address) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -298,7 +330,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-     public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers(){
         List<Customer> customers = new ArrayList();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String query = "SELECT * FROM "+AppMaster.CustomerDetails.TABLE_NAME;
@@ -322,6 +354,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return customers;
 
      }
+
      public void deleteCustomer(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         sqLiteDatabase.delete(AppMaster.CustomerDetails.TABLE_NAME,AppMaster.CustomerDetails._ID+"=?",new String[]{String.valueOf(id)});
@@ -372,6 +405,24 @@ public class DBHelper extends SQLiteOpenHelper {
             return  customer;
         }
         return  null;
+    }
+
+    public int updateCustomer(Customer customer){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,customer.getFname());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,customer.getLname());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,customer.getEmail());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PHONE,customer.getPhone());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,customer.getAddress());
+
+
+        int status = sqLiteDatabase.update(AppMaster.CustomerDetails.TABLE_NAME,values,AppMaster.CustomerDetails._ID +" =?",
+                new String[]{String.valueOf(customer.getId())});
+
+        sqLiteDatabase.close();
+        return status;
     }
 
     public long addProduct(Product product) {
@@ -454,23 +505,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return status;
     }
 
-    public int updateCustomer(Customer customer){
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,customer.getFname());
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,customer.getLname());
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,customer.getEmail());
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PHONE,customer.getPhone());
-        values.put(AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,customer.getAddress());
 
 
-        int status = sqLiteDatabase.update(AppMaster.CustomerDetails.TABLE_NAME,values,AppMaster.CustomerDetails._ID +" =?",
-                new String[]{String.valueOf(customer.getId())});
-
-        sqLiteDatabase.close();
-        return status;
-    }
 
 
 
