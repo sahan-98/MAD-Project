@@ -9,6 +9,7 @@ import com.example.burgerfreakz.Classes.LoginD;
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
+import com.example.burgerfreakz.FeedbackV;
 import com.example.burgerfreakz.Product;
 
 
@@ -71,6 +72,12 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.Products.COLUMN_NAME_PRODUCTPRICE + " TEXT NOT NULL," +
                         AppMaster.Products.COLUMN_NAME_PRODUCTSIZE + " TEXT NOT NULL);";
 
+        String SQL_FEEDBACK_ENTRIES =
+                "CREATE TABLE " + AppMaster.Feedbacks.TABLE_NAME + " (" +
+                        AppMaster.Feedbacks._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        AppMaster.Feedbacks.COLUMN_NAME_FEEDCOMMENT + " TEXT," +
+                        AppMaster.Feedbacks.COLUMN_NAME_FEEDMAIL + " TEXT )";
+
 
 
 
@@ -80,6 +87,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_CUSTOMER_ENTRIES);
         sqLiteDatabase.execSQL(SQL_LOGIN_ENTRIES);
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_FEEDBACK_ENTRIES);
 
     }
 
@@ -501,6 +509,18 @@ public class DBHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.close();
         return status;
+    }
+
+    public long addfeedback(FeedbackV feedbackV){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Feedbacks.COLUMN_NAME_FEEDCOMMENT,feedbackV.getComment());
+        values.put(AppMaster.Feedbacks.COLUMN_NAME_FEEDMAIL,feedbackV.getFmail());
+
+        long newRowId = sqLiteDatabase.insert(AppMaster.Feedbacks.TABLE_NAME,null,values);
+        return newRowId;
+
     }
 
 
