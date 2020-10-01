@@ -48,13 +48,18 @@ public class CustomerList extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(CustomerList.this);
                 builder.setTitle(customer.getFname());
                 builder.setMessage(customer.getAddress());
-                builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        dbHelper.deleteCustomer(customer.getId());
+                        Intent intent2 = new Intent(CustomerList.this,CustomerList.class);
+                        startActivity(intent2);
+
+
                     }
                 });
-                builder.setNeutralButton("more info", new DialogInterface.OnClickListener() {
+                builder.setNeutralButton("More Info", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent4 = new Intent(CustomerList.this,MoreInfo.class);

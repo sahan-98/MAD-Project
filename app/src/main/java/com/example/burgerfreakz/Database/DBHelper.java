@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+import com.example.burgerfreakz.Adapters.CustomerAdapter;
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
@@ -233,6 +234,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
+
     public int updateRider(Riders riders){
         SQLiteDatabase db = getWritableDatabase();
 
@@ -249,6 +251,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return status;
 
     }
+
 
     public List<PDetails> getPaymentDetails(){
 
@@ -295,7 +298,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public List<Customer> getAllCustomers(){
+     public List<Customer> getAllCustomers(){
         List<Customer> customers = new ArrayList();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String query = "SELECT * FROM "+AppMaster.CustomerDetails.TABLE_NAME;
@@ -319,8 +322,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return customers;
 
      }
+     public void deleteCustomer(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(AppMaster.CustomerDetails.TABLE_NAME,AppMaster.CustomerDetails._ID+"=?",new String[]{String.valueOf(id)});
+        sqLiteDatabase.close();
+     }
 
-     public Customer getCustomer(int id){
+    public Customer getCustomer(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.query(AppMaster.CustomerDetails.TABLE_NAME,new String[]{AppMaster.CustomerDetails._ID,AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,AppMaster.CustomerDetails.COLUMN_NAME_PHONE,AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS},AppMaster.CustomerDetails._ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
@@ -338,6 +346,32 @@ public class DBHelper extends SQLiteOpenHelper {
             return customer;
         }
         return null;
+    }
+
+    public Customer getsingleCustomer(String username){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.query(AppMaster.CustomerDetails.TABLE_NAME,new String[]{AppMaster.CustomerDetails._ID,
+                        AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,
+                        AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,
+                        AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,
+                        AppMaster.CustomerDetails.COLUMN_NAME_PHONE,
+                        AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS}, AppMaster.CustomerDetails.COLUMN_NAME_EMAIL + "= ?",new String[]{username},
+                null,null,null);
+        Customer customer;
+        if(cursor != null){
+            cursor.moveToFirst();
+
+            customer = new Customer(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+            return  customer;
+        }
+        return  null;
     }
 
     public long addProduct(Product product) {
@@ -403,6 +437,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
 
     }
+
     public int updateProduct(Product product){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
@@ -414,6 +449,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
         int status = sqLiteDatabase.update(AppMaster.Products.TABLE_NAME,values, AppMaster.Products._ID +" =?",
                 new String[]{String.valueOf(product.getId())});
+
+        sqLiteDatabase.close();
+        return status;
+    }
+
+    public int updateCustomer(Customer customer){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_FIRSTNAME,customer.getFname());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_LASTNAME,customer.getLname());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_EMAIL,customer.getEmail());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_PHONE,customer.getPhone());
+        values.put(AppMaster.CustomerDetails.COLUMN_NAME_ADDRESS,customer.getAddress());
+
+
+        int status = sqLiteDatabase.update(AppMaster.CustomerDetails.TABLE_NAME,values,AppMaster.CustomerDetails._ID +" =?",
+                new String[]{String.valueOf(customer.getId())});
 
         sqLiteDatabase.close();
         return status;

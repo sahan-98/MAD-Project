@@ -1,4 +1,4 @@
-package com.example.burgerfreakz;
+package com.example.burgerfreakz.Classes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.burgerfreakz.Feedback;
+import com.example.burgerfreakz.Home;
+import com.example.burgerfreakz.Invoice;
+import com.example.burgerfreakz.MainActivity;
+import com.example.burgerfreakz.R;
 
 public class Payment extends AppCompatActivity {
 

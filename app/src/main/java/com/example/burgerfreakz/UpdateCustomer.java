@@ -2,38 +2,51 @@ package com.example.burgerfreakz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.burgerfreakz.Classes.Customer;
+import com.example.burgerfreakz.Database.AppMaster;
 import com.example.burgerfreakz.Database.DBHelper;
 
 
 public class UpdateCustomer extends AppCompatActivity {
-    EditText fname,lname,email,phone,address,password;
+    private TextView fname,lname,email,phone,address,header;
+    private Context context;
     private DBHelper dbHelper;
-    private Button editButton;
-
+    private String username;
+    private Button update;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_customer);
 
-        dbHelper = new DBHelper(UpdateCustomer.this);
+        fname = findViewById(R.id.uFname);
+        lname = findViewById(R.id.uLname);
+        email = findViewById(R.id.uEmail);
+        phone = findViewById(R.id.uPhone);
+        address = findViewById(R.id.uAddress);
+        header = findViewById(R.id.uHeader);
+        update = findViewById(R.id.uUpdate);
 
-        fname = (EditText) findViewById(R.id.fname);
-        lname = (EditText) findViewById(R.id.lname);
-        email = (EditText) findViewById(R.id.memail);
-        phone = (EditText) findViewById(R.id.ephone);
-        address = (EditText) findViewById(R.id.eAddress);
-        password = (EditText) findViewById(R.id.ePassword);
-        editButton = findViewById(R.id.update);
+        context = this;
+        dbHelper = new DBHelper(context);
 
-        final String id = getIntent().getStringExtra("Id");
-        Customer customer = dbHelper.getCustomer(Integer.parseInt(id));
+        username = getIntent().getStringExtra("username");
+        Customer customer = dbHelper.getsingleCustomer(username);
+
+
+        header.setText("Hi " + customer.getFname() + " " + customer.getLname());
+
+        id = customer.getId();
 
         fname.setText(customer.getFname());
         lname.setText(customer.getLname());
@@ -41,23 +54,25 @@ public class UpdateCustomer extends AppCompatActivity {
         phone.setText(customer.getPhone());
         address.setText(customer.getAddress());
 
-
-        editButton.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String fn = fname.getText().toString();
-                String ln = lname.getText().toString();
-                String em = email.getText().toString();
-                String ep = phone.getText().toString();
-                String ea = address.getText().toString();
+                String Fname = fname.getText().toString();
+                String Lname = lname.getText().toString();
+                String mail = email.getText().toString();
+                String phn = phone.getText().toString();
+                String add = address.getText().toString();
 
-
-                /*Customer customer = new Customer(Integer.parseInt(id),fname,lname,email,phone,address,password);
-                int state = dbHelper.(customer);
-                Intent intentUPD = new Intent(UpdateCustomer.this,CustomerList.class);
-                startActivity(intentUPD);*/
+                Customer customer1 = new Customer(id,Fname,Lname,mail,phn,add);
+                int state = dbHelper.updateCustomer(customer1);
+                Intent intent = new Intent(context, MyAccount.class);
+                intent.putExtra("username",email.getText().toString());
+                startActivity(intent);
+                Toast.makeText(context, "Customer Updated Successfully !!", Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
     }
 }

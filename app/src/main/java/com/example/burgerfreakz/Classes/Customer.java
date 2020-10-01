@@ -9,12 +9,12 @@ public class Customer {
     }
 
     public Customer(int id,String fname, String lname, String email, String phone, String address) {
+        this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phone = phone;
         this.address = address;
-
     }
 
     public Customer(String fname, String lname, String email, String phone, String address) {

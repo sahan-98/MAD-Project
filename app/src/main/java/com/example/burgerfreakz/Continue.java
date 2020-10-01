@@ -6,15 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.burgerfreakz.Database.DBHelper;
-import com.example.burgerfreakz.Payment;
-import com.example.burgerfreakz.R;
+import com.example.burgerfreakz.Classes.Payment;
 
 public class Continue extends AppCompatActivity {
 

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Database.DBHelper;
 
-public class MoreInfo extends AppCompatActivity {
+public class CustomerInfo extends AppCompatActivity {
     private DBHelper dbHelper;
     private TextView  fname,lname,email,phone,add,header;
 
@@ -17,7 +17,7 @@ public class MoreInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_info);
 
-        dbHelper = new DBHelper(MoreInfo.this);
+        dbHelper = new DBHelper(CustomerInfo.this);
 
         fname = (TextView) findViewById(R.id.firstn);
         lname = (TextView) findViewById(R.id.lastn);
@@ -29,7 +29,7 @@ public class MoreInfo extends AppCompatActivity {
         final String id = getIntent().getStringExtra("Id");
         Customer customer = dbHelper.getCustomer(Integer.parseInt(id));
 
-        header.setText(customer.getFname() + " " + customer.getLname() + " !!");
+        header.setText("Hi " + customer.getFname() + " " + customer.getLname() + " !!");
 
         fname.setText(customer.getFname());
         lname.setText(customer.getLname());

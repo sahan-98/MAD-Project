@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateProduct"></activity>
+        <activity android:name=".CustomerInfo"></activity>
+        <activity android:name=".MyAccount" />
+        <activity android:name=".singlecustomer" />
+        <activity android:name=".UpdateProduct"/>
         <activity android:name=".ProductMoreInfo" />
         <activity android:name=".ProductList" />
-        <activity android:name=".singlecustomer" />
         <activity android:name=".CustomerList" />
         <activity android:name=".MoreInfo" />
         <activity android:name=".PaymentDetails" />
@@ -28,7 +30,7 @@
         <activity android:name=".Feedback" />
         <activity android:name=".RidertoSystem" />
         <activity android:name=".RidertoOrder" />
-        <activity android:name=".Payment" />
+        <activity android:name=".Classes.Payment" />
         <activity android:name=".Continue" />
         <activity android:name=".AddProduct" />
         <activity android:name=".AdminPanel" />
