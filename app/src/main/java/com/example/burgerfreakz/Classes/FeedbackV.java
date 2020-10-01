@@ -1,4 +1,4 @@
-package com.example.burgerfreakz;
+package com.example.burgerfreakz.Classes;
 
 public class FeedbackV {
 

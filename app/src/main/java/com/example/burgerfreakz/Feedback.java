@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.burgerfreakz.Classes.FeedbackV;
 import com.example.burgerfreakz.Database.DBHelper;
 
 public class Feedback extends AppCompatActivity {

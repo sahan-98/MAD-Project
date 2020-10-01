@@ -9,7 +9,7 @@ import com.example.burgerfreakz.Classes.LoginD;
 import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
-import com.example.burgerfreakz.FeedbackV;
+import com.example.burgerfreakz.Classes.FeedbackV;
 import com.example.burgerfreakz.Product;
 
 
