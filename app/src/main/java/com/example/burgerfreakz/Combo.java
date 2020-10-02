@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Combo extends AppCompatActivity {
 
     public Button button1;
 
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_combo);
 
         productName1 = findViewById(R.id.prod1);
         price1 = findViewById(R.id.price1);
@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
         pName = productName1.getText().toString();
         pPrice = price1.getText().toString();
 
-        Intent intent = new Intent(MainActivity.this,Customize.class);
+        Intent intent = new Intent(Combo.this,Customize.class);
         intent.putExtra("pName", pName);
         intent.putExtra("pPrice", pPrice);
-        intent.putExtra("imageView13", R.drawable.f4);
+        intent.putExtra("imageView13", R.drawable.com);
         startActivity(intent);
 
     }
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
         pName = productName2.getText().toString();
         pPrice = price2.getText().toString();
 
-        Intent intent1 = new Intent(MainActivity.this,Customize.class);
+        Intent intent1 = new Intent(Combo.this,Customize.class);
         intent1.putExtra("pName", pName);
         intent1.putExtra("pPrice", pPrice);
-        intent1.putExtra("imageView13", R.drawable.f2);
+        intent1.putExtra("imageView13", R.drawable.combo2);
         startActivity(intent1);
 
     }
@@ -73,14 +73,13 @@ public class MainActivity extends AppCompatActivity {
         pName = productName3.getText().toString();
         pPrice = price3.getText().toString();
 
-        Intent intent1 = new Intent(MainActivity.this,Customize.class);
+        Intent intent1 = new Intent(Combo.this,Customize.class);
         intent1.putExtra("pName", pName);
         intent1.putExtra("pPrice", pPrice);
-        intent1.putExtra("imageView13", R.drawable.f3);
+        intent1.putExtra("imageView13", R.drawable.combo3);
         startActivity(intent1);
 
     }
-
     public void Burgers(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
