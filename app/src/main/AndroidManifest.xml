@@ -37,6 +37,10 @@
         <activity android:name=".AddProduct" />
         <activity android:name=".AdminPanel" />
         <activity android:name=".shoppingcart" />
+        <activity android:name=".EmployeeList" />
+        <activity android:name=".AddEmployee" />
+        <activity android:name=".EmployeeMoreInfo" />
+        <activity android:name=".UpdateEmployee" />
         <activity android:name=".Customize" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Home">

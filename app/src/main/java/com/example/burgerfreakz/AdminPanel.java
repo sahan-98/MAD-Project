@@ -13,7 +13,7 @@ public class AdminPanel extends AppCompatActivity {
     public Button button3 ;
     public Button button4 ;
     public Button button5 ;
-    public Button button6 ;
+    public Button button6 ,employee;
 
 
     @Override
@@ -60,7 +60,22 @@ public class AdminPanel extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        employee = findViewById(R.id.EmployeeM);
+
+        employee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1= new Intent(AdminPanel.this,EmployeeList.class);
+                startActivity(intent1);
+            }
+        });
+
+
+
     }
+
+
 
 
 }

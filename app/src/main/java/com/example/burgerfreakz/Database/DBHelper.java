@@ -10,6 +10,7 @@ import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Classes.FeedbackV;
+import com.example.burgerfreakz.Employee;
 import com.example.burgerfreakz.Product;
 
 
@@ -78,6 +79,15 @@ public class DBHelper extends SQLiteOpenHelper {
                         AppMaster.Feedbacks.COLUMN_NAME_FEEDCOMMENT + " TEXT," +
                         AppMaster.Feedbacks.COLUMN_NAME_FEEDMAIL + " TEXT )";
 
+        String SQL_EMPLOYEE_ENTRIES =
+                "CREATE TABLE " + AppMaster.Employees.TABLE_NAME + "(" +
+                        AppMaster.Employees._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        AppMaster.Employees.COLUMN_NAME_EMPLOYEENAME + " TEXT NOT NULL," +
+                        AppMaster.Employees.COLUMN_NAME_EMPLOYEEEMAIL + " TEXT NOT NULL," +
+                        AppMaster.Employees.COLUMN_NAME_EMPLOYEECITY + " TEXT NOT NULL," +
+                        AppMaster.Employees.COLUMN_NAME_EMPLOYEECONTACTNUMBER + " TEXT NOT NULL);";
+
+
 
 
 
@@ -88,6 +98,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_LOGIN_ENTRIES);
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
         sqLiteDatabase.execSQL(SQL_FEEDBACK_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_EMPLOYEE_ENTRIES);
 
     }
 
@@ -567,6 +578,86 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return null;
 
+    }
+
+    public long addEmployee(Employee employee) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEENAME, employee.getEmpName() );
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEEEMAIL, employee.getEmpEmail());
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEECITY, employee.getEmpCity());
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEECONTACTNUMBER, employee.getEmpContactNumber());
+
+        long newRowId = sqLiteDatabase.insert(AppMaster.Employees.TABLE_NAME, null, values);
+        return newRowId;
+
+    }
+
+    public List<Employee> getAllEmployee() {
+        List<Employee> employees = new ArrayList();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+AppMaster.Employees.TABLE_NAME;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Employee employee = new Employee();
+
+                employee.setId(cursor.getInt(0));
+                employee.setEmpName(cursor.getString(1));
+                employee.setEmpEmail(cursor.getString(2));
+                employee.setEmpCity(cursor.getString(3));
+                employee.setEmpContactNumber(cursor.getString(4));
+
+                employees.add(employee);
+            }while (cursor.moveToNext());
+        }
+        return employees;
+
+    }
+
+    public void deleteEmployee(int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(AppMaster.Employees.TABLE_NAME, AppMaster.Employees._ID +" =?",new String[]{String.valueOf(Id)});
+        sqLiteDatabase.close();
+    }
+
+    public Employee getEmployee(int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(AppMaster.Employees.TABLE_NAME,new String[]{AppMaster.Employees._ID, AppMaster.Employees.COLUMN_NAME_EMPLOYEENAME, AppMaster.Employees.COLUMN_NAME_EMPLOYEEEMAIL, AppMaster.Employees.COLUMN_NAME_EMPLOYEECITY, AppMaster.Employees.COLUMN_NAME_EMPLOYEECONTACTNUMBER}, AppMaster.Employees._ID + "= ?",new String[]{String.valueOf(Id)},null,null,null);
+        Employee employee;
+        if(cursor != null){
+            cursor.moveToFirst();
+            employee = new Employee(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4)
+            );
+            return employee;
+        }
+        return null;
+
+    }
+
+    public int updateEmployee(Employee employee){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEENAME,employee.getEmpName());
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEEEMAIL,employee.getEmpEmail());
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEECITY,employee.getEmpCity());
+        values.put(AppMaster.Employees.COLUMN_NAME_EMPLOYEECONTACTNUMBER,employee.getEmpContactNumber());
+
+        int status = sqLiteDatabase.update(AppMaster.Employees.TABLE_NAME,values, AppMaster.Employees._ID +" =?",
+                new String[]{String.valueOf(employee.getId())});
+
+        sqLiteDatabase.close();
+        return status;
     }
 
 

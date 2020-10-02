@@ -163,6 +163,7 @@
         android:id="@+id/EmployeeM"
         android:layout_width="295dp"
         android:layout_height="65dp"
+        android:onClick="Employee"
         android:text="@string/employeeD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

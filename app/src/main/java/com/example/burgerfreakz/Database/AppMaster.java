@@ -64,6 +64,14 @@ public class AppMaster {
         public static final String COLUMN_NAME_FEEDMAIL = "FeedMail";
 
     }
+    public static class Employees implements BaseColumns{
+        public static final String TABLE_NAME = "Employee";
+        public static final String COLUMN_NAME_EMPLOYEENAME = "EmployeeName";
+        public static final String COLUMN_NAME_EMPLOYEEEMAIL = "EmployeeEmail";
+        public static final String COLUMN_NAME_EMPLOYEECITY = "EmployeeCity";
+        public static final String COLUMN_NAME_EMPLOYEECONTACTNUMBER = "EmployeeContactNumber";
+
+    }
 
 
 }
