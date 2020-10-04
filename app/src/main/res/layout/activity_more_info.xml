@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.613"
-        app:srcCompat="@drawable/back6" />
+        app:srcCompat="@drawable/back10" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -116,12 +116,13 @@
 
     <TextView
         android:id="@+id/mHeader"
-        android:layout_width="275dp"
-        android:layout_height="30dp"
+        android:layout_width="361dp"
+        android:layout_height="72dp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,6 +135,7 @@
         android:layout_height="34dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -147,6 +149,7 @@
         android:layout_height="34dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -160,6 +163,7 @@
         android:layout_height="34dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -173,6 +177,7 @@
         android:layout_height="34dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -182,10 +187,11 @@
 
     <TextView
         android:id="@+id/firstn"
-        android:layout_width="316dp"
-        android:layout_height="34dp"
+        android:layout_width="319dp"
+        android:layout_height="42dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"

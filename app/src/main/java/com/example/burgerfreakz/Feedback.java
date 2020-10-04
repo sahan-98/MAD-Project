@@ -37,7 +37,7 @@ public class Feedback extends AppCompatActivity {
 
                 FeedbackV feedbackV = new FeedbackV(FeedComment,FeedMail);
 
-                Intent intent= new Intent(Feedback.this,ProductList.class);
+                Intent intent= new Intent(Feedback.this,Home.class);
                 startActivity(intent);
 
 
