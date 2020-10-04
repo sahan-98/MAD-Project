@@ -86,9 +86,9 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="149dp"
-        android:layout_height="21dp"
-        android:text="Available Sizes"
+        android:layout_width="137dp"
+        android:layout_height="25dp"
+        android:text="Product Price"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -103,9 +103,9 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="127dp"
-        android:layout_height="25dp"
-        android:text="Product Price"
+        android:layout_width="154dp"
+        android:layout_height="23dp"
+        android:text="Available Sizes "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -113,7 +113,7 @@
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.753" />
@@ -229,8 +229,8 @@
 
     <TextView
         android:id="@+id/pprice"
-        android:layout_width="202dp"
-        android:layout_height="40dp"
+        android:layout_width="208dp"
+        android:layout_height="44dp"
         android:textAlignment="viewStart"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -244,7 +244,7 @@
 
     <TextView
         android:id="@+id/psize"
-        android:layout_width="218dp"
+        android:layout_width="210dp"
         android:layout_height="44dp"
         android:textAlignment="viewStart"
         android:textColor="#FFFFFF"
