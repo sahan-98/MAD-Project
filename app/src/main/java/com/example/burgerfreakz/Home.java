@@ -29,6 +29,7 @@ public class Home extends AppCompatActivity {
 
     public void Deals(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username","null");
         startActivity(intent);
     }
 

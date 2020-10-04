@@ -36,7 +36,7 @@ public class AdminPanel extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1= new Intent(AdminPanel.this,RidertoSystem.class);
+                Intent intent1= new Intent(AdminPanel.this,DeliveryPanel.class);
                 startActivity(intent1);
             }
         });

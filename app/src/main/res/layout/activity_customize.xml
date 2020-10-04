@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C1000000"
     tools:context=".Customize">
 
     <androidx.appcompat.widget.Toolbar
@@ -70,7 +71,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:background="#2CCDC9C9"
+        android:background="#E4FFFFFF"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,17 +122,24 @@
         app:srcCompat="@drawable/ic_baseline_feedback_24"
         tools:ignore="VectorDrawableCompat" />
 
-
-
-
-
-
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/product" />
     <TextView
         android:id="@+id/rs"
         android:layout_width="61dp"
         android:layout_height="46dp"
         android:text="Rs."
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,6 +155,7 @@
         android:layout_height="40dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -171,7 +180,6 @@
         android:id="@+id/custPrice"
         android:layout_width="104dp"
         android:layout_height="46dp"
-        android:background="@android:color/holo_red_dark"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FFFFFF"
@@ -204,6 +212,7 @@
         android:layout_height="17dp"
         android:text="@string/form_8"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
@@ -228,6 +237,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Regular"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.657"
@@ -240,6 +250,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.755"

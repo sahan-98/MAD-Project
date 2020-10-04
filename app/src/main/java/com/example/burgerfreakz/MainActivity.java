@@ -7,15 +7,13 @@ import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Button button1;
-
+    private Button button1;
+    private String username;
     TextView productName1,productName2,productName3, price1,price2,price3;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         productName3 = findViewById(R.id.prod3);
         price3 = findViewById(R.id.price3);
 
+        username = getIntent().getStringExtra("username");
 
     }
     public void OrderNow1(View view){
@@ -94,5 +93,17 @@ public class MainActivity extends AppCompatActivity {
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void MyAccount(View view){
+        if(username.equals("null")){
+            Intent intent = new Intent(this, Accountdetails.class);
+            startActivity(intent);
+            Toast.makeText(this, "Please be a registered customer !!", Toast.LENGTH_SHORT).show();
+        }else {
+            Intent intent = new Intent(this, MyAccount.class);
+            intent.putExtra("username", username);
+            startActivity(intent);
+        }
     }
 }

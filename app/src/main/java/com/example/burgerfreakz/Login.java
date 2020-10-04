@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
 
         else if(usernames.indexOf(user)>=0){
             if(passwords.get(usernames.indexOf(user)).equals(pass)){
-                Intent intent = new Intent(this, MyAccount.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("username",username.getText().toString());
                 startActivity(intent);
                 Toast.makeText(this, "Login successfull !", Toast.LENGTH_SHORT).show();

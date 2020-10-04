@@ -9,6 +9,7 @@
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#C1000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -19,92 +20,105 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#C1000000"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="#C1000000"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/pFname"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pLname"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pPhone"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pAddress"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pLandmarks"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pProduct"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pMethod"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pSub"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pSchrg"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/pNettot"
                 android:layout_width="106dp"
                 android:layout_height="wrap_content"
+                android:background="#C1000000"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textStyle="normal" />
 
         </LinearLayout>

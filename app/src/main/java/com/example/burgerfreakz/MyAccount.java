@@ -30,7 +30,7 @@ public class MyAccount extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
         Customer customer = dbHelper.getsingleCustomer(username);
 
-        header.setText("Hi " + customer.getFname() + " " + customer.getLname());
+        header.setText("Hi " + customer.getFname() + " " + customer.getLname()+" !!!");
 
     }
 
