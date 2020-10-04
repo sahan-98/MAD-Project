@@ -69,11 +69,13 @@ public class changePassword extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 }

@@ -16,7 +16,7 @@ import com.example.burgerfreakz.Database.DBHelper;
 public class Feedback extends AppCompatActivity {
     EditText fcomment,femail;
     Button FeedADD;
-
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,8 @@ public class Feedback extends AppCompatActivity {
         fcomment = findViewById(R.id.FeedComment);
         femail = findViewById(R.id.email);
         FeedADD = findViewById(R.id.feedSubmit);
+
+        username = getIntent().getStringExtra("username");
 
         final DBHelper dbHelper = new DBHelper(this);
 
@@ -51,5 +53,22 @@ public class Feedback extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void Home(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
+    }
+
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
     }
 }

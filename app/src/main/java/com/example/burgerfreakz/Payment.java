@@ -17,7 +17,7 @@ import com.example.burgerfreakz.R;
 
 public class Payment extends AppCompatActivity {
 
-    private String name,address,product,quantity,unit,total,service,net,discount;
+    private String name,address,product,quantity,unit,total,service,net,discount,username;
     private TextView pMethod,holder,expire,cvv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class Payment extends AppCompatActivity {
         holder = findViewById(R.id.pHolder);
         expire = findViewById(R.id.pDate);
         cvv = findViewById(R.id.pCvv);
+
+        username = getIntent().getStringExtra("username");
     }
 
     @Override
@@ -65,6 +67,7 @@ public class Payment extends AppCompatActivity {
             intent.putExtra("discount", discount);
             intent.putExtra("service", service);
             intent.putExtra("net", net);
+            intent.putExtra("username",username);
             startActivity(intent);
         }
 
@@ -77,11 +80,13 @@ public class Payment extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

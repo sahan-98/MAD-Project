@@ -58,6 +58,7 @@ public class MyAccount extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

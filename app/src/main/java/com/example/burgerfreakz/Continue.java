@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Database.DBHelper;
 
 public class Continue extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class Continue extends AppCompatActivity {
 
     RadioGroup radioPayGroup;
     RadioButton radioPayButton;
-    private String Pmethod,product,total,discount,sCharg,netTotal,quantity,unit;
+    private String Pmethod,product,total,discount,sCharg,netTotal,quantity,unit,username;
     TextView fname,lname,address,phone,landmarks;
 
     @Override
@@ -34,6 +35,17 @@ public class Continue extends AppCompatActivity {
         landmarks = findViewById(R.id.pLandmarks);
         radioPayGroup = findViewById(R.id.payGroup);
 
+        username = getIntent().getStringExtra("username");
+
+        DBHelper dbHelper = new DBHelper(this);
+
+        if(!"null".equals(username)){
+            Customer customer = dbHelper.getsingleCustomer(username);
+            address.setText(customer.getAddress());
+            fname.setText(customer.getFname());
+            lname.setText(customer.getAddress());
+            phone.setText(customer.getPhone());
+        }
 
     }
 
@@ -75,6 +87,7 @@ public class Continue extends AppCompatActivity {
                  intent.putExtra("discount", discount);
                  intent.putExtra("service", sCharg);
                  intent.putExtra("net", netTotal);
+                 intent.putExtra("username",username);
                  startActivity(intent);
 
              } else if (Pmethod.equals("Pay On Delivery")) {
@@ -90,6 +103,7 @@ public class Continue extends AppCompatActivity {
                  intent.putExtra("discount", discount);
                  intent.putExtra("service", sCharg);
                  intent.putExtra("net", netTotal);
+                 intent.putExtra("username",username);
                  startActivity(intent);
              }
 
@@ -114,11 +128,13 @@ public class Continue extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class shoppingcart extends AppCompatActivity {
 
 
-    String pName, pPrice, pSize;
+    String pName, pPrice, pSize,username;
     TextView description, quantity, subTotal, netTotal, scharge,promo,disc,discTot;
     Float price, service, Total,discount = Float.valueOf(0);
     Integer quant = 1;
@@ -34,6 +34,7 @@ public class shoppingcart extends AppCompatActivity {
         discTot = findViewById(R.id.disctot);
         quantity.setText(String.valueOf(quant));
 
+        username = getIntent().getStringExtra("username");
     }
 
     @Override
@@ -75,6 +76,7 @@ public class shoppingcart extends AppCompatActivity {
         intent.putExtra("netTotal",netTotal.getText().toString());
         intent.putExtra("quantity",quantity.getText().toString());
         intent.putExtra("unitPrice",pPrice);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
@@ -116,6 +118,7 @@ public class shoppingcart extends AppCompatActivity {
 
     public void Shopping(View view){
         Intent intent = new Intent(shoppingcart.this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
@@ -126,11 +129,13 @@ public class shoppingcart extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

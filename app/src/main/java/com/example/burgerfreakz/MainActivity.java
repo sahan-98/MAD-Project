@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("pName", pName);
         intent.putExtra("pPrice", pPrice);
         intent.putExtra("imageView13", R.drawable.f4);
+        intent.putExtra("username",username);
         startActivity(intent);
 
     }
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         intent1.putExtra("pName", pName);
         intent1.putExtra("pPrice", pPrice);
         intent1.putExtra("imageView13", R.drawable.f2);
+        intent1.putExtra("username",username);
         startActivity(intent1);
 
     }
@@ -76,21 +78,25 @@ public class MainActivity extends AppCompatActivity {
         intent1.putExtra("pName", pName);
         intent1.putExtra("pPrice", pPrice);
         intent1.putExtra("imageView13", R.drawable.f3);
+        intent1.putExtra("username",username);
         startActivity(intent1);
 
     }
 
     public void Burgers(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void hotdogs(View view){
         Intent intent = new Intent(this, Hotdog.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
     public void combo(View view){
         Intent intent = new Intent(this, Combo.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
@@ -101,11 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

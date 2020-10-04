@@ -20,7 +20,9 @@ public class Customize extends AppCompatActivity {
     TextView productName, price;
     RadioGroup sizeGroup;
     RadioButton radioSize;
-    String product,pprice;
+    String product,pprice,username;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class Customize extends AppCompatActivity {
             imageView.setImageResource(res_img);
         }
 
+        username = getIntent().getStringExtra("username");
 
     }
 
@@ -70,6 +73,7 @@ public class Customize extends AppCompatActivity {
         intent.putExtra("pName", pName);
         intent.putExtra("pPrice", pPrice);
         intent.putExtra("pSize", pSize);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
@@ -80,11 +84,13 @@ public class Customize extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class Invoice extends AppCompatActivity {
 
-    private String name,address,method,product,quantity,unit,total,service,net,discount;
+    private String name,address,method,product,quantity,unit,total,service,net,discount,username;
     private TextView iName,iAddress,iProduct,iQuantity,iUnit,iTotal,iDisc,iService,iNet,iMethod;
 
     @Override
@@ -27,6 +27,8 @@ public class Invoice extends AppCompatActivity {
         iDisc = findViewById(R.id.iDisc);
         iService = findViewById(R.id.iServ);
         iNet = findViewById(R.id.iNet);
+
+        username = getIntent().getStringExtra("username");
 
     }
 
@@ -65,11 +67,13 @@ public class Invoice extends AppCompatActivity {
 
     public void AboutUs(View view){
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void Menu(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 }
