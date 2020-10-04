@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.burgerfreakz.Database.DBHelper;
 
+import java.util.List;
+
 public class Accountdetails extends AppCompatActivity {
 
     TextView fname,lname,email,phone,address,password,conPassword;
@@ -45,18 +47,28 @@ public class Accountdetails extends AppCompatActivity {
 
 
 
+
         if(password.getText().toString().equals(conPassword.getText().toString()))
         {
 
-           long val = dbHelper.addCustomerDetails(firstname,lastname,mail,pHONE,Address);
-            long val2 = dbHelper.addLoginInfo(mail,Password);
+            List usernames = dbHelper.readLoginInfo("user");
 
-            if(val>0){
-                Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+            if(usernames.contains(mail)){
+                Toast.makeText(context, "Email Already Exist!!", Toast.LENGTH_SHORT).show();
             }else{
+
+            long val = dbHelper.addCustomerDetails(firstname, lastname, mail, pHONE, Address);
+            long val2 = dbHelper.addLoginInfo(mail, Password);
+
+
+            if (val > 0) {
+                Toast.makeText(this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
+            } else {
                 Toast.makeText(context, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
             }
-
+        }
 
         }else{
             Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
@@ -64,10 +76,9 @@ public class Accountdetails extends AppCompatActivity {
             conPassword.setText("");
         }
 
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
 
 
+}
 
     }
 
@@ -75,4 +86,3 @@ public class Accountdetails extends AppCompatActivity {
 
 
 
-}
