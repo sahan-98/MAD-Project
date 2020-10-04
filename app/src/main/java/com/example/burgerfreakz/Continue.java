@@ -113,7 +113,7 @@ public class Continue extends AppCompatActivity {
                      landmarks.getText().toString(), product, Pmethod, total, sCharg, netTotal);
 
              if (val > 0) {
-                 Toast.makeText(this, "Data inserted successfully ", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, "Enter your payment details !!", Toast.LENGTH_SHORT).show();
              } else {
                  Toast.makeText(this, "Data not inserted ", Toast.LENGTH_SHORT).show();
              }
