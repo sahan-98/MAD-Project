@@ -50,7 +50,7 @@ public class FeedbackDetails extends AppCompatActivity {
 
                 final FeedbackV feedbackV = feedbackVS.get(i);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Edit Riders Details");
+                builder.setTitle("Manage the feedback");
                 builder.setMessage(feedbackV.getComment() + "\n" + feedbackV.getFmail());
                 builder.setNegativeButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
