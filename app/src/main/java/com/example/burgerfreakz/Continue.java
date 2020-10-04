@@ -43,7 +43,7 @@ public class Continue extends AppCompatActivity {
             Customer customer = dbHelper.getsingleCustomer(username);
             address.setText(customer.getAddress());
             fname.setText(customer.getFname());
-            lname.setText(customer.getAddress());
+            lname.setText(customer.getLname());
             phone.setText(customer.getPhone());
         }
 
