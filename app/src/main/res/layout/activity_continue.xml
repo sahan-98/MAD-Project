@@ -7,6 +7,19 @@
     android:background="#C1000000"
     tools:context=".Continue">
 
+    <ImageView
+        android:id="@+id/imageView38"
+        android:layout_width="414dp"
+        android:layout_height="619dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613"
+        app:srcCompat="@drawable/back5" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="413dp"
@@ -31,28 +44,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
-
-    <ImageView
-        android:id="@+id/btnCart"
-        android:layout_width="36dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnProfile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/btnProfile"
-        android:layout_width="41dp"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:ignore="VectorDrawableCompat" />
 
     <ImageView
         android:id="@+id/btnMore"
@@ -242,7 +233,7 @@
         android:hint="Enter First Name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#C8FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pLname"
         app:layout_constraintTop_toTopOf="parent"
@@ -254,13 +245,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter Phone No"
-        android:inputType="textPersonName"
+        android:inputType="number|phone"
         android:textColor="#FFFFFF"
+        android:textColorHint="#C8FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pLandmarks"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434"
-        android:textColorHint="#FFFFFF" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <EditText
         android:id="@+id/pLandmarks"
@@ -270,7 +261,7 @@
         android:hint="Enter Landmarks"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#C8FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.918"
@@ -286,7 +277,7 @@
         android:hint="Enter Last Name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#C8FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pPhone"
         app:layout_constraintTop_toTopOf="parent"
@@ -328,7 +319,7 @@
         android:hint="Enter Your Address"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#C8FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

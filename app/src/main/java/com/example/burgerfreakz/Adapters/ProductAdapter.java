@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.burgerfreakz.Product;
+import com.example.burgerfreakz.Classes.Product;
 import com.example.burgerfreakz.R;
 
 import java.util.List;

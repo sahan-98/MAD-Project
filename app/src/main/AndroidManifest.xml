@@ -14,7 +14,6 @@
         <activity android:name=".Combo" />
         <activity android:name=".FeedbackDetails" />
         <activity android:name=".changePassword" />
-        <activity android:name=".CustomerInfo" />
         <activity android:name=".MyAccount" />
         <activity android:name=".singlecustomer" />
         <activity android:name=".UpdateProduct" />
@@ -28,7 +27,6 @@
         <activity android:name=".RiderDetails" />
         <activity android:name=".riderRow" />
         <activity android:name=".Login" />
-        <activity android:name=".Order" />
         <activity android:name=".Accountdetails" />
         <activity android:name=".UpdateCustomer" />
         <activity android:name=".Invoice" />

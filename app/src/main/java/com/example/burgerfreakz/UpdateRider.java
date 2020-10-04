@@ -57,11 +57,21 @@ public class UpdateRider extends AppCompatActivity {
                 Toast.makeText(UpdateRider.this, "Rider Updated Successfully !!", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
+    }
+    public void Panel(View view){
+        Intent intent = new Intent(this, DeliveryPanel.class);
+        startActivity(intent);
     }
 
+    public void Home(View view){
+        Intent intent = new Intent(this, AdminPanel.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
 
 
 

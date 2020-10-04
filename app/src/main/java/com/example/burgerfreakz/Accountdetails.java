@@ -75,11 +75,23 @@ public class Accountdetails extends AppCompatActivity {
             password.setText("");
             conPassword.setText("");
         }
-
-
-
 }
 
+    public void Home(View view){
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username","null");
+        startActivity(intent);
+    }
     }
 
 

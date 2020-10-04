@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class Invoice extends AppCompatActivity {
@@ -56,5 +57,19 @@ public class Invoice extends AppCompatActivity {
         iService.setText(service);
         iNet.setText(net);
 
+    }
+    public void Home(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

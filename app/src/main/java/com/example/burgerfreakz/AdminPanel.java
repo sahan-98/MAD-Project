@@ -75,7 +75,25 @@ public class AdminPanel extends AppCompatActivity {
 
     }
 
+    public void Home(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
 
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username","null");
+        startActivity(intent);
+    }
+
+    public void Logout  (View view){
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
 
 }

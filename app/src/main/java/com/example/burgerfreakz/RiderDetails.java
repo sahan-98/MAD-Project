@@ -80,10 +80,20 @@ public class RiderDetails extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
+    public void Home(View view){
+        Intent intent = new Intent(this, AdminPanel.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Panel(View view){
+        Intent intent = new Intent(this, DeliveryPanel.class);
+        startActivity(intent);
+    }
 }

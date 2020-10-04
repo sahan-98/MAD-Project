@@ -60,6 +60,20 @@ public class changePassword extends AppCompatActivity {
             }
         });
 
+    }
+    public void Home(View view){
+        Intent intent = new Intent(this, MyAccount.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
+    }
 
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Menu(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

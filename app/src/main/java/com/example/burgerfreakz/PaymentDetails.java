@@ -40,7 +40,20 @@ public class PaymentDetails extends AppCompatActivity {
         PaymentAdapter paymentAdapter = new PaymentAdapter(context,R.layout.activity_payment_row,pDetails);
         listView.setAdapter(paymentAdapter);
 
-
-
     }
+    public void Home(View view){
+        Intent intent = new Intent(this, AdminPanel.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void Panel(View view){
+        Intent intent = new Intent(this, DeliveryPanel.class);
+        startActivity(intent);
+    }
+
 }

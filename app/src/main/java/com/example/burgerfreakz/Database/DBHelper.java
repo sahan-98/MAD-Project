@@ -10,8 +10,8 @@ import com.example.burgerfreakz.Classes.PDetails;
 import com.example.burgerfreakz.Classes.Riders;
 import com.example.burgerfreakz.Classes.Customer;
 import com.example.burgerfreakz.Classes.FeedbackV;
-import com.example.burgerfreakz.Employee;
-import com.example.burgerfreakz.Product;
+import com.example.burgerfreakz.Classes.Employee;
+import com.example.burgerfreakz.Classes.Product;
 
 
 import java.util.ArrayList;

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -58,47 +59,52 @@ public class Continue extends AppCompatActivity {
 
          Pmethod = radioPayButton.getText().toString();
 
-        if(Pmethod.equals("Pay Now")){
-            Intent intent = new Intent(Continue.this, Payment.class);
-            intent.putExtra("name",fname.getText().toString() +" "+ lname.getText().toString());
-            intent.putExtra("address",address.getText().toString());
-            intent.putExtra("product",product);
-            intent.putExtra("quant",quantity);
-            intent.putExtra("unit",unit);
-            intent.putExtra("total",total);
-            intent.putExtra("discount",discount);
-            intent.putExtra("service",sCharg);
-            intent.putExtra("net",netTotal);
-            startActivity(intent);
+         if(TextUtils.isEmpty(fname.getText()) || TextUtils.isEmpty(lname.getText()) || TextUtils.isEmpty(address.getText())
+         || TextUtils.isEmpty(phone.getText()) || TextUtils.isEmpty(landmarks.getText())){
+             Toast.makeText(this, "Fields Cannot be Empty!!!", Toast.LENGTH_SHORT).show();
+         }else {
 
-        }else if(Pmethod.equals("Pay On Delivery")){
-            Toast.makeText(Continue.this, "Thank you!! You can Pay on Delivery !!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Invoice.class);
-            intent.putExtra("name",fname.getText().toString() +" "+ lname.getText().toString());
-            intent.putExtra("address",address.getText().toString());
-            intent.putExtra("method",Pmethod);
-            intent.putExtra("product",product);
-            intent.putExtra("quant",quantity);
-            intent.putExtra("unit",unit);
-            intent.putExtra("total",total);
-            intent.putExtra("discount",discount);
-            intent.putExtra("service",sCharg);
-            intent.putExtra("net",netTotal);
-            startActivity(intent);
-        }
+             if (Pmethod.equals("Pay Now")) {
+                 Intent intent = new Intent(Continue.this, Payment.class);
+                 intent.putExtra("name", fname.getText().toString() + " " + lname.getText().toString());
+                 intent.putExtra("address", address.getText().toString());
+                 intent.putExtra("product", product);
+                 intent.putExtra("quant", quantity);
+                 intent.putExtra("unit", unit);
+                 intent.putExtra("total", total);
+                 intent.putExtra("discount", discount);
+                 intent.putExtra("service", sCharg);
+                 intent.putExtra("net", netTotal);
+                 startActivity(intent);
 
-        DBHelper dbHelper = new DBHelper(this);
+             } else if (Pmethod.equals("Pay On Delivery")) {
+                 Toast.makeText(Continue.this, "Thank you!! You can Pay on Delivery !!", Toast.LENGTH_SHORT).show();
+                 Intent intent = new Intent(this, Invoice.class);
+                 intent.putExtra("name", fname.getText().toString() + " " + lname.getText().toString());
+                 intent.putExtra("address", address.getText().toString());
+                 intent.putExtra("method", Pmethod);
+                 intent.putExtra("product", product);
+                 intent.putExtra("quant", quantity);
+                 intent.putExtra("unit", unit);
+                 intent.putExtra("total", total);
+                 intent.putExtra("discount", discount);
+                 intent.putExtra("service", sCharg);
+                 intent.putExtra("net", netTotal);
+                 startActivity(intent);
+             }
 
-        long val = dbHelper.addPaymentDetails(fname.getText().toString(),lname.getText().toString(),phone.getText().toString(),address.getText().toString(),
-                landmarks.getText().toString(),product,Pmethod,total,sCharg,netTotal);
+             DBHelper dbHelper = new DBHelper(this);
 
-        if(val > 0){
-            Toast.makeText(this, "Data inserted successfully ", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, "Data not inserted ", Toast.LENGTH_SHORT).show();
-        }
+             long val = dbHelper.addPaymentDetails(fname.getText().toString(), lname.getText().toString(), phone.getText().toString(), address.getText().toString(),
+                     landmarks.getText().toString(), product, Pmethod, total, sCharg, netTotal);
 
+             if (val > 0) {
+                 Toast.makeText(this, "Data inserted successfully ", Toast.LENGTH_SHORT).show();
+             } else {
+                 Toast.makeText(this, "Data not inserted ", Toast.LENGTH_SHORT).show();
+             }
 
+         }
     }
 
     public void Home(View view){

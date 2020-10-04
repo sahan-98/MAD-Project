@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.burgerfreakz.Adapters.ProductAdapter;
+import com.example.burgerfreakz.Classes.Product;
 import com.example.burgerfreakz.Database.DBHelper;
 
 import java.util.ArrayList;
@@ -89,5 +90,19 @@ public class ProductList extends AppCompatActivity {
                 builder.show();
             }
         });
+    }
+    public void Panel(View view){
+        Intent intent = new Intent(this, AdminPanel.class);
+        startActivity(intent);
+    }
+
+    public void Home(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void AboutUs(View view){
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
     }
 }
