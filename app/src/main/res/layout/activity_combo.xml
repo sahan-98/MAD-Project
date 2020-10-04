@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C1000000"
-    tools:context=".MainActivity">
+    tools:context=".Combo">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -59,7 +59,6 @@
         android:id="@+id/btnProfile"
         android:layout_width="41dp"
         android:layout_height="38dp"
-        android:onClick="MyAccount"
         app:layout_constraintBottom_toBottomOf="@+id/btnMore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.735"
@@ -194,10 +193,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.082"
-        app:srcCompat="@drawable/f4" />
+        app:srcCompat="@drawable/com" />
 
     <Button
-        android:id="@+id/order3"
+        android:id="@+id/corder3"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:background="#4CAF50"
@@ -229,7 +228,7 @@
         app:layout_constraintVertical_bias="0.726" />
 
     <Button
-        android:id="@+id/order2"
+        android:id="@+id/corder2"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:background="#4CAF50"
@@ -249,7 +248,7 @@
         android:id="@+id/price1"
         android:layout_width="68dp"
         android:layout_height="27dp"
-        android:text="220"
+        android:text="1500"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -263,22 +262,22 @@
 
     <TextView
         android:id="@+id/prod1"
-        android:layout_width="228dp"
+        android:layout_width="235dp"
         android:layout_height="47dp"
-        android:text="@string/burger_1"
+        android:text="Burger 2 and Hot dogs 2 with coke"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.161" />
 
     <Button
-        android:id="@+id/order1"
+        android:id="@+id/corder1"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:background="#4CAF50"
@@ -296,16 +295,16 @@
 
     <ImageView
         android:id="@+id/burger2"
-        android:layout_width="118dp"
-        android:layout_height="166dp"
+        android:layout_width="126dp"
+        android:layout_height="136dp"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toTopOf="@+id/burger3"
         app:layout_constraintEnd_toStartOf="@+id/price2"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/f2" />
+        app:layout_constraintVertical_bias="0.865"
+        app:srcCompat="@drawable/combo2" />
 
     <TextView
         android:id="@+id/Rs1"
@@ -324,41 +323,41 @@
 
     <TextView
         android:id="@+id/prod2"
-        android:layout_width="248dp"
-        android:layout_height="59dp"
-        android:text="@string/burger_2"
+        android:layout_width="222dp"
+        android:layout_height="46dp"
+        android:text="Double Cheese Hot Dog 2 Burger 2 with coke"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.401" />
 
     <TextView
         android:id="@+id/prod3"
-        android:layout_width="243dp"
-        android:layout_height="52dp"
-        android:text="@string/burger_3"
+        android:layout_width="238dp"
+        android:layout_height="48dp"
+        android:text="Jumbo Sausage Hot Dogs 2 and Cheesy Burger 2 with coke"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="0.689" />
 
     <TextView
         android:id="@+id/price3"
         android:layout_width="52dp"
         android:layout_height="21dp"
-        android:text="270"
+        android:text="750"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -374,7 +373,7 @@
         android:id="@+id/price2"
         android:layout_width="71dp"
         android:layout_height="33dp"
-        android:text="280"
+        android:text="1150"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -403,16 +402,15 @@
 
     <ImageView
         android:id="@+id/burger3"
-        android:layout_width="89dp"
-        android:layout_height="206dp"
+        android:layout_width="96dp"
+        android:layout_height="159dp"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="456dp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toStartOf="@+id/price3"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404"
-        app:srcCompat="@drawable/f3" />
+        app:layout_constraintTop_toTopOf="@+id/imageView18"
+        app:layout_constraintVertical_bias="0.974"
+        app:srcCompat="@drawable/combo3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

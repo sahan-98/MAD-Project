@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DeliveryPanel"></activity>
+        <activity android:name=".Hotdog"/>
+        <activity android:name=".Combo" />
         <activity android:name=".FeedbackDetails" />
         <activity android:name=".changePassword" />
         <activity android:name=".CustomerInfo" />
@@ -26,6 +28,7 @@
         <activity android:name=".RiderDetails" />
         <activity android:name=".riderRow" />
         <activity android:name=".Login" />
+        <activity android:name=".Order" />
         <activity android:name=".Accountdetails" />
         <activity android:name=".UpdateCustomer" />
         <activity android:name=".Invoice" />
