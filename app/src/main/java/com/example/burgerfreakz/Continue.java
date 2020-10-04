@@ -72,7 +72,7 @@ public class Continue extends AppCompatActivity {
          Pmethod = radioPayButton.getText().toString();
 
          if(TextUtils.isEmpty(fname.getText()) || TextUtils.isEmpty(lname.getText()) || TextUtils.isEmpty(address.getText())
-         || TextUtils.isEmpty(phone.getText()) || TextUtils.isEmpty(landmarks.getText())){
+         || TextUtils.isEmpty(phone.getText()) ){
              Toast.makeText(this, "Fields Cannot be Empty!!!", Toast.LENGTH_SHORT).show();
          }else {
 
