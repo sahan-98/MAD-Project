@@ -49,20 +49,41 @@ public class shoppingcart extends AppCompatActivity {
         pSize = dintent.getStringExtra("pSize");
 
         price = Float.parseFloat(pPrice);
-        service = price * 5 / 100;
+        Total = Tot(price,quant);
+        service = Service(Total,discount);
 
         description.setText(pName + "\nRs." + pPrice + "\n"+ pSize);
         subTotal.setText("Rs. " + String.valueOf(price));
+        discTot.setText("Rs. " + String.valueOf(price));
         scharge.setText("Rs." + String.valueOf(service));
         netTotal.setText("Rs. " + String.valueOf(price + service));
 
     }
+
+    public float Service(float Total , float discount){
+        return (Total - discount) * 5/100;
+    }
+
+    public float Tot(float price , float quant){
+        return price * quant;
+    }
+
+    public float discountedTotal(float total,float discount){
+        return total - discount;
+    }
+
+    public float netTotal(float total,float service,float discount){
+        return total + service - discount;
+    }
+
     public void Enter(View view){
         if(promo.getText().toString().equals("BFZ")){
             discount = Float.valueOf(100);
+            service = Service(Total,discount);
             disc.setText("Rs. "+ String.valueOf(discount));
-            discTot.setText("Rs. "+ String.valueOf(Total - discount));
-            netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
+            discTot.setText("Rs. "+ String.valueOf(discountedTotal(Total,discount)));
+            scharge.setText("Rs." + String.valueOf(service));
+            netTotal.setText("Rs. " + String.valueOf(netTotal(Total,service,discount)));
         }else {
             Toast.makeText(this, "Invalid Promo Code", Toast.LENGTH_SHORT).show();
         }
@@ -82,22 +103,26 @@ public class shoppingcart extends AppCompatActivity {
 
     public void Increase(View view){
                 quant = quant + 1;
-                Total = price * quant;
+
+                Total = Tot(price,quant);
+                service = Service(Total,discount);
                 subTotal.setText("Rs. " + String.valueOf(Total));
-                discTot.setText("Rs. "+ String.valueOf(Total - discount));
-                netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
+                discTot.setText("Rs. "+ String.valueOf(discountedTotal(Total,discount)));
+                netTotal.setText("Rs. " + String.valueOf(netTotal(Total,service,discount)));
+                scharge.setText("Rs." + String.valueOf(service));
                 quantity.setText(String.valueOf(quant));
     }
 
     public void Decrease(View view){
                 if (quant > 1) {
                     quant = quant - 1;
-
-                    Total = price * quant;
+                    Total = Tot(price,quant);
+                    service = Service(Total,discount);
                 }
                 subTotal.setText("Rs. " + String.valueOf(Total));
-                discTot.setText("Rs. "+ String.valueOf(Total - discount));
-                netTotal.setText("Rs. " + String.valueOf(Total + service - discount));
+                discTot.setText("Rs. "+ String.valueOf(discountedTotal(Total,discount)));
+                netTotal.setText("Rs. " + String.valueOf(netTotal(Total,service,discount)));
+                scharge.setText("Rs." + String.valueOf(service));
                 quantity.setText(String.valueOf(quant));
     }
 

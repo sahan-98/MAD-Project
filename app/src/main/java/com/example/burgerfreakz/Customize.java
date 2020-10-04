@@ -99,8 +99,11 @@ public class Customize extends AppCompatActivity {
     }
 
     public void Large(View view){
-        price.setText(String.valueOf(Float.parseFloat(pprice)+30));
+        price.setText(String.valueOf(largePrice(pprice)));
     }
 
+    public float largePrice(String price){
+        return Float.parseFloat(price) + 30;
+    }
 
 }
