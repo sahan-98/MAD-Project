@@ -20,7 +20,7 @@ public class Customize extends AppCompatActivity {
     TextView productName, price;
     RadioGroup sizeGroup;
     RadioButton radioSize;
-
+    String product,pprice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,11 @@ public class Customize extends AppCompatActivity {
         super.onResume();
 
         Intent intent = getIntent();
-        String product= intent.getStringExtra("pName");
-        String pprice = intent.getStringExtra("pPrice");
+         product= intent.getStringExtra("pName");
+         pprice = intent.getStringExtra("pPrice");
 
         productName.setText(product);
-        price.setText(pprice);
+        price.setText(String.valueOf(Float.parseFloat(pprice)));
     }
 
     public void Buynow(View view){
@@ -87,5 +87,14 @@ public class Customize extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void Regular(View view){
+        price.setText(String.valueOf(Float.parseFloat(pprice)));
+    }
+
+    public void Large(View view){
+        price.setText(String.valueOf(Float.parseFloat(pprice)+30));
+    }
+
 
 }
