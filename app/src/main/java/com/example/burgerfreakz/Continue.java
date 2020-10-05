@@ -92,6 +92,8 @@ public class Continue extends AppCompatActivity {
                  startActivity(intent);
 
              } else if (Pmethod.equals("Pay On Delivery")) {
+
+                 if(!"null".equals(username)){
                  Toast.makeText(Continue.this, "Thank you!! You can Pay on Delivery !!", Toast.LENGTH_SHORT).show();
                  Intent intent = new Intent(this, Invoice.class);
                  intent.putExtra("name", fname.getText().toString() + " " + lname.getText().toString());
@@ -106,6 +108,9 @@ public class Continue extends AppCompatActivity {
                  intent.putExtra("net", netTotal);
                  intent.putExtra("username",username);
                  startActivity(intent);
+                 }else{
+                     Toast.makeText(this, "Please be a registered customer to use this function ", Toast.LENGTH_LONG).show();
+                 }
              }
 
              DBHelper dbHelper = new DBHelper(this);
