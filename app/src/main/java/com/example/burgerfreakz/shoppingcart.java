@@ -88,6 +88,7 @@ public class shoppingcart extends AppCompatActivity {
             Toast.makeText(this, "Invalid Promo Code", Toast.LENGTH_SHORT).show();
         }
     }
+
     public void Continue(View view){
         Intent intent = new Intent(shoppingcart.this, Continue.class);
         intent.putExtra("product",pName);
@@ -103,7 +104,6 @@ public class shoppingcart extends AppCompatActivity {
 
     public void Increase(View view){
                 quant = quant + 1;
-
                 Total = Tot(price,quant);
                 service = Service(Total,discount);
                 subTotal.setText("Rs. " + String.valueOf(Total));
@@ -138,7 +138,6 @@ public class shoppingcart extends AppCompatActivity {
                 discTot.setText("Rs. 0.00");
                 netTotal.setText("Rs. 0.00");
                 quantity.setText("1");
-
     }
 
     public void Shopping(View view){

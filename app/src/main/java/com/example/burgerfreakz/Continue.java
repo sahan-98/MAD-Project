@@ -77,6 +77,7 @@ public class Continue extends AppCompatActivity {
          }else {
 
              if (Pmethod.equals("Pay Now")) {
+                 Toast.makeText(Continue.this, "Enter Your Payment Details !!", Toast.LENGTH_SHORT).show();
                  Intent intent = new Intent(Continue.this, Payment.class);
                  intent.putExtra("name", fname.getText().toString() + " " + lname.getText().toString());
                  intent.putExtra("address", address.getText().toString());
@@ -112,11 +113,11 @@ public class Continue extends AppCompatActivity {
              long val = dbHelper.addPaymentDetails(fname.getText().toString(), lname.getText().toString(), phone.getText().toString(), address.getText().toString(),
                      landmarks.getText().toString(), product, Pmethod, total, sCharg, netTotal);
 
-             if (val > 0) {
-                 Toast.makeText(this, "Enter your payment details !!", Toast.LENGTH_SHORT).show();
+             /*if (val > 0) {
+                 Toast.makeText(this, "Data Inserted !!", Toast.LENGTH_SHORT).show();
              } else {
                  Toast.makeText(this, "Data not inserted ", Toast.LENGTH_SHORT).show();
-             }
+             }*/
 
          }
     }
